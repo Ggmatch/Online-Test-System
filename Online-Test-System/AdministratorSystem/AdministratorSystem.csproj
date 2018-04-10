@@ -59,6 +59,8 @@
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,7 +96,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\LogOn\LogOn.css" />
     <Content Include="Global.asax" />
+    <Content Include="Models\Model2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model2.edmx</DependentUpon>
+      <LastGenOutput>Model2.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\help.html" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -105,20 +123,146 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <EntityDeploy Include="Models\Model2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model2.edmx.diagram">
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\knockout-3.0.0.debug.js" />
+    <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\LogOn\LogOn.js" />
+    <Content Include="index.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\ManagementOfStuController.cs" />
+    <Compile Include="Controllers\ManagementOfTestPaperController.cs" />
+    <Compile Include="Controllers\ManagementOfTypeOfWorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectResolver.cs" />
+    <Compile Include="Models\add_typeofwork_between_administrator_and_typeofwork.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\administrator.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdministratorRepository.cs" />
+    <Compile Include="Models\arrange_testgame_between_ordinaryuser_and_testpaper.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\binding_typeofwork_between_questionbank_and_typeofwork.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\binding_typeofwork_between_testpaper_and_typeofwork.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_completion.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_composition.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_question.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_questionandanswer.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_reading.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_selection.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\collect_question_between_ordinaryuser_and_trueorfalse.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\comment_between_administrator_and_ordinaryuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\completion.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\composition.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\establish_questionbank_between_administrator_and_questionbank.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\establish_questionbank_between_organizationuser_and_questionbank.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\generate_testpaper_between_administrator_and_testpaper.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\generate_testpaper_between_organizationuser_and_testpaper.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\having_organizationuser_between_organ_and_organuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\having_student_between_organization_and_ordinaryuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IAdministratorRepository.cs" />
+    <Compile Include="Models\IManageStuRepository.cs" />
+    <Compile Include="Models\IManageTestPaperRepository.cs" />
+    <Compile Include="Models\include_question_between_bank_and_completion.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_bank_and_composition.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_bank_and_questionandanswer.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_bank_and_reading.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_bank_and_selection.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_bank_and_trueorfalse.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_testpaper_and_completion.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_testpaper_and_composition.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_testpaper_and_questionandanswer.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_testpaper_and_reading.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_testpaper_and_selection.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\include_question_between_testpaper_and_trueorfalse.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ITypeOfWorkRepository.cs" />
+    <Compile Include="Models\ManageStuRepository.cs" />
+    <Compile Include="Models\ManageTestPaperRepository.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +278,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Model2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\notice_of_testgame_between_organizationuser_and_ordinaryuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ordinaryuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\organization.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\organizationuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\question.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\questionandanswer.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\questionbank.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\reading.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\selection.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\systemnotice_.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\systemnotice_between_administrator_organizationuser_ordinaryuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\testpaper.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tools.cs" />
+    <Compile Include="Models\trueorfalse.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\typeofwork.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeOfWorkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +348,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <Content Include="Scripts\jquery-1.9.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -154,6 +361,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\ManageStu\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -91,6 +91,7 @@
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\LogOn\get.js" />
     <Content Include="Scripts\LogOn\LogOn.js" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -49,6 +49,8 @@ namespace AdministratorSystem.Infrastructure
         private IKernel AddRequestBindings(IKernel kernel)
         {
             kernel.Bind<IAdministratorRepository>().To<AdministratorRepository>().InSingletonScope();
+            kernel.Bind<IManageStuRepository>().To<ManageStuRepository>().InSingletonScope();
+            kernel.Bind<ITypeOfWorkRepository>().To<TypeOfWorkRepository>().InSingletonScope();
             return kernel;
         }
     }

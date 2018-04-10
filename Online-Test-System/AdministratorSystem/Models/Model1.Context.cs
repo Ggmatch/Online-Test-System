@@ -26,5 +26,21 @@ namespace AdministratorSystem.Models
         }
     
         public DbSet<administrator> administrator { get; set; }
+        public DbSet<ordinaryuser> ordinaryuser { get; set; }
+        public DbSet<establish_questionbank_between_administrator_and_questionbank> establish_questionbank_between_administrator_and_questionbank { get; set; }
+        public DbSet<generate_testpaper_between_administrator_and_testpaper> generate_testpaper_between_administrator_and_testpaper { get; set; }
+        public DbSet<question> question { get; set; }
+        public DbSet<questionbank> questionbank { get; set; }
+        public DbSet<testpaper> testpaper { get; set; }
+        public DbSet<typeofwork> typeofwork { get; set; }
+        public DbSet<arrange_testgame_between_ordinaryuser_and_testpaper> arrange_testgame_between_ordinaryuser_and_testpaper { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_question> collect_question_between_ordinaryuser_and_question { get; set; }
+        public DbSet<comment_between_administrator_and_ordinaryuser> comment_between_administrator_and_ordinaryuser { get; set; }
+        public DbSet<establish_questionbank_between_organizationuser_and_questionbank> establish_questionbank_between_organizationuser_and_questionbank { get; set; }
+        public DbSet<generate_testpaper_between_organizationuser_and_testpaper> generate_testpaper_between_organizationuser_and_testpaper { get; set; }
+        public DbSet<notice_of_testgame_between_organizationuser_and_ordinaryuser> notice_of_testgame_between_organizationuser_and_ordinaryuser { get; set; }
+        public DbSet<organization> organization { get; set; }
+        public DbSet<organizationuser> organizationuser { get; set; }
+        public DbSet<systemnotice_> systemnotice_ { get; set; }
     }
 }

@@ -14,19 +14,11 @@ namespace AdministratorSystem.Models
             db = new DBEntities();
         }
 
-        public bool ValidateLogOn(string id, string pwd)
+        public bool ValidateLogOn(administrator admin)
         {
-            // 转换id类型
-            int Id;
-            if (!int.TryParse(id, out Id))
-                return false;
-            // 密码hash化
-            string Pwd = HashPassword(pwd);
-
-            administrator admin = db.administrator.Where(p => p.ID == Id && p.Pwd == Pwd).FirstOrDefault();
+            administrator result = db.administrator.Where(p=>p==admin).FirstOrDefault();
             if(admin!=null)
             {
-                // 验证成功
                 return true;
             }
             else
@@ -34,20 +26,6 @@ namespace AdministratorSystem.Models
                 return false;
             }
         }
-        /*
-         * 使用sha1算法对密码散列化
-         */
-        private string HashPassword(string str)
-        {
-            string rethash = "";
-
-            System.Security.Cryptography.SHA1 hash = System.Security.Cryptography.SHA1.Create();
-            System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
-            byte[] combined = encoder.GetBytes(str);
-            hash.ComputeHash(combined);
-            rethash = Convert.ToBase64String(hash.Hash);
-
-            return rethash;
-        }
+       
     }
 }

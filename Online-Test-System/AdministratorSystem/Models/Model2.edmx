@@ -1,0 +1,1456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model1.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="add_typeofwork_between_administrator_and_typeofwork">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="IDOfTypeOfWork" />
+          </Key>
+          <Property Name="AdministratorID" Type="uint" Nullable="false" />
+          <Property Name="IDOfTypeOfWork" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="administrator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arrange_testgame_between_ordinaryuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="State" Type="utinyint" Nullable="false" />
+          <Property Name="TypeOfWork" Type="int" Nullable="false" />
+          <Property Name="Time" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Grade" Type="smallint" />
+          <Property Name="PassMark" Type="smallint" Nullable="false" />
+          <Property Name="Marker" Type="varchar" MaxLength="20" />
+          <Property Name="Info" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="binding_typeofwork_between_questionbank_and_typeofwork">
+          <Key>
+            <PropertyRef Name="IDOfQuestionBank" />
+            <PropertyRef Name="IDOfTypeOfWork" />
+          </Key>
+          <Property Name="IDOfQuestionBank" Type="uint" Nullable="false" />
+          <Property Name="IDOfTypeOfWork" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="binding_typeofwork_between_testpaper_and_typeofwork">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="IDOfTypeOfWork" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="IDOfTypeOfWork" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_completion">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_composition">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_questionandanswer">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_reading">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_selection">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_trueorfalse">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="comment_between_administrator_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TimeOfComment" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ContentOfComment" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="completion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Answer" Type="utinyint" />
+          <Property Name="Score" Type="usmallint" />
+        </EntityType>
+        <EntityType Name="composition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="2000" />
+          <Property Name="Score" Type="usmallint" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_administrator_and_questionbank">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="IDOfQuestionBank" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="IDOfQuestionBank" Type="uint" Nullable="false" />
+          <Property Name="TimeOfEstablish" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_organizationuser_and_questionbank">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="QuestionBankID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="QuestionBankID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfEstablish" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_administrator_and_testpaper">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_organizationuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="having_organizationuser_between_organ_and_organuser">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+            <PropertyRef Name="OrganizationUserID" />
+          </Key>
+          <Property Name="OrganizationID" Type="int" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="having_student_between_organization_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_bank_and_completion”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_bank_and_completion">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_bank_and_composition”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_bank_and_composition">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_bank_and_questionandanswer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_bank_and_questionandanswer">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_bank_and_reading”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_bank_and_reading">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_bank_and_selection”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_bank_and_selection">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_bank_and_trueorfalse”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_bank_and_trueorfalse">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_testpaper_and_completion”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_testpaper_and_completion">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_testpaper_and_composition”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_testpaper_and_composition">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_testpaper_and_questionandanswer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_testpaper_and_questionandanswer">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_testpaper_and_reading”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_testpaper_and_reading">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_testpaper_and_selection”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_testpaper_and_selection">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.online-test-system1.include_question_between_testpaper_and_trueorfalse”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="include_question_between_testpaper_and_trueorfalse">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="uint" Nullable="false" />
+          <Property Name="QuestionID" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordinaryuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IDCard" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="RegisterTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="isLocking" Type="utinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organizationuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCard" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="RegisterTime" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="questionandanswer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Score" Type="usmallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="questionbank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reading">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="QuestionA" Type="varchar" MaxLength="150" />
+          <Property Name="QuestionB" Type="varchar" MaxLength="150" />
+          <Property Name="QuestionC" Type="varchar" MaxLength="150" />
+          <Property Name="Answer1" Type="varchar" MaxLength="150" />
+          <Property Name="Answer2" Type="varchar" MaxLength="150" />
+          <Property Name="Answer3" Type="varchar" MaxLength="150" />
+          <Property Name="Score1" Type="usmallint" />
+          <Property Name="Score2" Type="usmallint" />
+          <Property Name="Score3" Type="usmallint" />
+        </EntityType>
+        <EntityType Name="selection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="OptionA" Type="varchar" MaxLength="50" />
+          <Property Name="OptionB" Type="varchar" MaxLength="50" />
+          <Property Name="OptionC" Type="varchar" MaxLength="50" />
+          <Property Name="OptionD" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="utinyint" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="4" />
+          <Property Name="Score" Type="usmallint" />
+        </EntityType>
+        <EntityType Name="systemnotice_between_administrator_organizationuser_ordinaryuser">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="uint" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="uint" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="uint" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="testpaper">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestPaperName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TestPaperScore" Type="smallint" Nullable="false" />
+          <Property Name="TimeIntervalOfSavingAnswer" Type="smallint" Nullable="false" />
+          <Property Name="CanUseAgain" Type="utinyint" Nullable="false" />
+          <Property Name="OverTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="PassMark" Type="usmallint" Nullable="false" />
+          <Property Name="Amount1" Type="tinyint" Nullable="false" />
+          <Property Name="Amount2" Type="utinyint" Nullable="false" />
+          <Property Name="Amount3" Type="utinyint" Nullable="false" />
+          <Property Name="Amount4" Type="utinyint" Nullable="false" />
+          <Property Name="Amount5" Type="utinyint" Nullable="false" />
+          <Property Name="Amount6" Type="utinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="trueorfalse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Answer" Type="utinyint" />
+          <Property Name="Score" Type="usmallint" />
+        </EntityType>
+        <EntityType Name="typeofwork">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="add_typeofwork_between_administrator_and_typeofwork" EntityType="Self.add_typeofwork_between_administrator_and_typeofwork" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="administrator" EntityType="Self.administrator" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="arrange_testgame_between_ordinaryuser_and_testpaper" EntityType="Self.arrange_testgame_between_ordinaryuser_and_testpaper" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="binding_typeofwork_between_questionbank_and_typeofwork" EntityType="Self.binding_typeofwork_between_questionbank_and_typeofwork" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="binding_typeofwork_between_testpaper_and_typeofwork" EntityType="Self.binding_typeofwork_between_testpaper_and_typeofwork" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_completion" EntityType="Self.collect_question_between_ordinaryuser_and_completion" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_composition" EntityType="Self.collect_question_between_ordinaryuser_and_composition" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_questionandanswer" EntityType="Self.collect_question_between_ordinaryuser_and_questionandanswer" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_reading" EntityType="Self.collect_question_between_ordinaryuser_and_reading" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_selection" EntityType="Self.collect_question_between_ordinaryuser_and_selection" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_trueorfalse" EntityType="Self.collect_question_between_ordinaryuser_and_trueorfalse" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="comment_between_administrator_and_ordinaryuser" EntityType="Self.comment_between_administrator_and_ordinaryuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="completion" EntityType="Self.completion" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="composition" EntityType="Self.composition" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="establish_questionbank_between_administrator_and_questionbank" EntityType="Self.establish_questionbank_between_administrator_and_questionbank" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="establish_questionbank_between_organizationuser_and_questionbank" EntityType="Self.establish_questionbank_between_organizationuser_and_questionbank" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="generate_testpaper_between_administrator_and_testpaper" EntityType="Self.generate_testpaper_between_administrator_and_testpaper" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="generate_testpaper_between_organizationuser_and_testpaper" EntityType="Self.generate_testpaper_between_organizationuser_and_testpaper" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="having_organizationuser_between_organ_and_organuser" EntityType="Self.having_organizationuser_between_organ_and_organuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="having_student_between_organization_and_ordinaryuser" EntityType="Self.having_student_between_organization_and_ordinaryuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntityType="Self.notice_of_testgame_between_organizationuser_and_ordinaryuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="ordinaryuser" EntityType="Self.ordinaryuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="organization" EntityType="Self.organization" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="organizationuser" EntityType="Self.organizationuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="questionandanswer" EntityType="Self.questionandanswer" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="questionbank" EntityType="Self.questionbank" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="reading" EntityType="Self.reading" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="selection" EntityType="Self.selection" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="systemnotice_between_administrator_organizationuser_ordinaryuser" EntityType="Self.systemnotice_between_administrator_organizationuser_ordinaryuser" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="testpaper" EntityType="Self.testpaper" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="trueorfalse" EntityType="Self.trueorfalse" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="typeofwork" EntityType="Self.typeofwork" Schema="online-test-system1" store:Type="Tables" />
+          <EntitySet Name="include_question_between_bank_and_completion" EntityType="Self.include_question_between_bank_and_completion" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_bank_and_completion`.`BankID`, 
+`include_question_between_bank_and_completion`.`QuestionID`
+FROM `include_question_between_bank_and_completion` AS `include_question_between_bank_and_completion`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_bank_and_composition" EntityType="Self.include_question_between_bank_and_composition" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_bank_and_composition`.`BankID`, 
+`include_question_between_bank_and_composition`.`QuestionID`
+FROM `include_question_between_bank_and_composition` AS `include_question_between_bank_and_composition`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_bank_and_questionandanswer" EntityType="Self.include_question_between_bank_and_questionandanswer" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_bank_and_questionandanswer`.`BankID`, 
+`include_question_between_bank_and_questionandanswer`.`QuestionID`
+FROM `include_question_between_bank_and_questionandanswer` AS `include_question_between_bank_and_questionandanswer`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_bank_and_reading" EntityType="Self.include_question_between_bank_and_reading" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_bank_and_reading`.`BankID`, 
+`include_question_between_bank_and_reading`.`QuestionID`
+FROM `include_question_between_bank_and_reading` AS `include_question_between_bank_and_reading`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_bank_and_selection" EntityType="Self.include_question_between_bank_and_selection" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_bank_and_selection`.`BankID`, 
+`include_question_between_bank_and_selection`.`QuestionID`
+FROM `include_question_between_bank_and_selection` AS `include_question_between_bank_and_selection`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_bank_and_trueorfalse" EntityType="Self.include_question_between_bank_and_trueorfalse" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_bank_and_trueorfalse`.`BankID`, 
+`include_question_between_bank_and_trueorfalse`.`QuestionID`
+FROM `include_question_between_bank_and_trueorfalse` AS `include_question_between_bank_and_trueorfalse`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_testpaper_and_completion" EntityType="Self.include_question_between_testpaper_and_completion" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_testpaper_and_completion`.`TestPaperID`, 
+`include_question_between_testpaper_and_completion`.`QuestionID`
+FROM `include_question_between_testpaper_and_completion` AS `include_question_between_testpaper_and_completion`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_testpaper_and_composition" EntityType="Self.include_question_between_testpaper_and_composition" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_testpaper_and_composition`.`TestPaperID`, 
+`include_question_between_testpaper_and_composition`.`QuestionID`
+FROM `include_question_between_testpaper_and_composition` AS `include_question_between_testpaper_and_composition`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_testpaper_and_questionandanswer" EntityType="Self.include_question_between_testpaper_and_questionandanswer" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_testpaper_and_questionandanswer`.`TestPaperID`, 
+`include_question_between_testpaper_and_questionandanswer`.`QuestionID`
+FROM `include_question_between_testpaper_and_questionandanswer` AS `include_question_between_testpaper_and_questionandanswer`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_testpaper_and_reading" EntityType="Self.include_question_between_testpaper_and_reading" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_testpaper_and_reading`.`TestPaperID`, 
+`include_question_between_testpaper_and_reading`.`QuestionID`
+FROM `include_question_between_testpaper_and_reading` AS `include_question_between_testpaper_and_reading`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_testpaper_and_selection" EntityType="Self.include_question_between_testpaper_and_selection" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_testpaper_and_selection`.`TestPaperID`, 
+`include_question_between_testpaper_and_selection`.`QuestionID`
+FROM `include_question_between_testpaper_and_selection` AS `include_question_between_testpaper_and_selection`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="include_question_between_testpaper_and_trueorfalse" EntityType="Self.include_question_between_testpaper_and_trueorfalse" store:Type="Tables" store:Schema="online-test-system1">
+            <DefiningQuery>SELECT
+`include_question_between_testpaper_and_trueorfalse`.`TestPaperID`, 
+`include_question_between_testpaper_and_trueorfalse`.`QuestionID`
+FROM `include_question_between_testpaper_and_trueorfalse` AS `include_question_between_testpaper_and_trueorfalse`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="add_typeofwork_between_administrator_and_typeofwork">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="IDOfTypeOfWork" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int64" Nullable="false" />
+          <Property Name="IDOfTypeOfWork" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="administrator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pwd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arrange_testgame_between_ordinaryuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TestPaperID" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Byte" Nullable="false" />
+          <Property Name="TypeOfWork" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grade" Type="Int16" />
+          <Property Name="PassMark" Type="Int16" Nullable="false" />
+          <Property Name="Marker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Info" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="binding_typeofwork_between_questionbank_and_typeofwork">
+          <Key>
+            <PropertyRef Name="IDOfQuestionBank" />
+            <PropertyRef Name="IDOfTypeOfWork" />
+          </Key>
+          <Property Name="IDOfQuestionBank" Type="Int64" Nullable="false" />
+          <Property Name="IDOfTypeOfWork" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="binding_typeofwork_between_testpaper_and_typeofwork">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="IDOfTypeOfWork" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="IDOfTypeOfWork" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_completion">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_composition">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_questionandanswer">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_reading">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_selection">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_trueorfalse">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfCollection" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="comment_between_administrator_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfComment" Type="DateTime" Nullable="false" />
+          <Property Name="ContentOfComment" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="completion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="Byte" />
+          <Property Name="Score" Type="Int32" />
+        </EntityType>
+        <EntityType Name="composition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_administrator_and_questionbank">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="IDOfQuestionBank" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="IDOfQuestionBank" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfEstablish" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_organizationuser_and_questionbank">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="QuestionBankID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionBankID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfEstablish" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_administrator_and_testpaper">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="TestPaperID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_organizationuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="TestPaperID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="having_organizationuser_between_organ_and_organuser">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+            <PropertyRef Name="OrganizationUserID" />
+          </Key>
+          <Property Name="OrganizationID" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="having_student_between_organization_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationID" Type="Int32" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordinaryuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pwd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" />
+          <Property Name="isLocking" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrganizationName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organizationuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pwd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="questionandanswer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="questionbank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reading">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QuestionA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionB" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionC" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Answer1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Answer2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Answer3" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Score1" Type="Int32" />
+          <Property Name="Score2" Type="Int32" />
+          <Property Name="Score3" Type="Int32" />
+        </EntityType>
+        <EntityType Name="selection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OptionA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OptionB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OptionC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OptionD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Byte" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Int32" />
+        </EntityType>
+        <EntityType Name="systemnotice_between_administrator_organizationuser_ordinaryuser">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int64" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="Int64" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int64" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="testpaper">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestPaperName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TestPaperScore" Type="Int16" Nullable="false" />
+          <Property Name="TimeIntervalOfSavingAnswer" Type="Int16" Nullable="false" />
+          <Property Name="CanUseAgain" Type="Byte" Nullable="false" />
+          <Property Name="OverTime" Type="DateTime" Nullable="false" />
+          <Property Name="PassMark" Type="Int32" Nullable="false" />
+          <Property Name="Amount1" Type="SByte" Nullable="false" />
+          <Property Name="Amount2" Type="Byte" Nullable="false" />
+          <Property Name="Amount3" Type="Byte" Nullable="false" />
+          <Property Name="Amount4" Type="Byte" Nullable="false" />
+          <Property Name="Amount5" Type="Byte" Nullable="false" />
+          <Property Name="Amount6" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="trueorfalse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="Byte" />
+          <Property Name="Score" Type="Int32" />
+        </EntityType>
+        <EntityType Name="typeofwork">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_bank_and_completion">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_bank_and_composition">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_bank_and_questionandanswer">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_bank_and_reading">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_bank_and_selection">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_bank_and_trueorfalse">
+          <Key>
+            <PropertyRef Name="BankID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="BankID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_completion">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_composition">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_questionandanswer">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_reading">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_selection">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_trueorfalse">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="Int64" Nullable="false" />
+          <Property Name="QuestionID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="add_typeofwork_between_administrator_and_typeofwork" EntityType="Self.add_typeofwork_between_administrator_and_typeofwork" />
+          <EntitySet Name="administrator" EntityType="Self.administrator" />
+          <EntitySet Name="arrange_testgame_between_ordinaryuser_and_testpaper" EntityType="Self.arrange_testgame_between_ordinaryuser_and_testpaper" />
+          <EntitySet Name="binding_typeofwork_between_questionbank_and_typeofwork" EntityType="Self.binding_typeofwork_between_questionbank_and_typeofwork" />
+          <EntitySet Name="binding_typeofwork_between_testpaper_and_typeofwork" EntityType="Self.binding_typeofwork_between_testpaper_and_typeofwork" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_completion" EntityType="Self.collect_question_between_ordinaryuser_and_completion" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_composition" EntityType="Self.collect_question_between_ordinaryuser_and_composition" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_questionandanswer" EntityType="Self.collect_question_between_ordinaryuser_and_questionandanswer" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_reading" EntityType="Self.collect_question_between_ordinaryuser_and_reading" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_selection" EntityType="Self.collect_question_between_ordinaryuser_and_selection" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_trueorfalse" EntityType="Self.collect_question_between_ordinaryuser_and_trueorfalse" />
+          <EntitySet Name="comment_between_administrator_and_ordinaryuser" EntityType="Self.comment_between_administrator_and_ordinaryuser" />
+          <EntitySet Name="completion" EntityType="Self.completion" />
+          <EntitySet Name="composition" EntityType="Self.composition" />
+          <EntitySet Name="establish_questionbank_between_administrator_and_questionbank" EntityType="Self.establish_questionbank_between_administrator_and_questionbank" />
+          <EntitySet Name="establish_questionbank_between_organizationuser_and_questionbank" EntityType="Self.establish_questionbank_between_organizationuser_and_questionbank" />
+          <EntitySet Name="generate_testpaper_between_administrator_and_testpaper" EntityType="Self.generate_testpaper_between_administrator_and_testpaper" />
+          <EntitySet Name="generate_testpaper_between_organizationuser_and_testpaper" EntityType="Self.generate_testpaper_between_organizationuser_and_testpaper" />
+          <EntitySet Name="having_organizationuser_between_organ_and_organuser" EntityType="Self.having_organizationuser_between_organ_and_organuser" />
+          <EntitySet Name="having_student_between_organization_and_ordinaryuser" EntityType="Self.having_student_between_organization_and_ordinaryuser" />
+          <EntitySet Name="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntityType="Self.notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          <EntitySet Name="ordinaryuser" EntityType="Self.ordinaryuser" />
+          <EntitySet Name="organization" EntityType="Self.organization" />
+          <EntitySet Name="organizationuser" EntityType="Self.organizationuser" />
+          <EntitySet Name="questionandanswer" EntityType="Self.questionandanswer" />
+          <EntitySet Name="questionbank" EntityType="Self.questionbank" />
+          <EntitySet Name="reading" EntityType="Self.reading" />
+          <EntitySet Name="selection" EntityType="Self.selection" />
+          <EntitySet Name="systemnotice_between_administrator_organizationuser_ordinaryuser" EntityType="Self.systemnotice_between_administrator_organizationuser_ordinaryuser" />
+          <EntitySet Name="testpaper" EntityType="Self.testpaper" />
+          <EntitySet Name="trueorfalse" EntityType="Self.trueorfalse" />
+          <EntitySet Name="typeofwork" EntityType="Self.typeofwork" />
+          <EntitySet Name="include_question_between_bank_and_completion" EntityType="Self.include_question_between_bank_and_completion" />
+          <EntitySet Name="include_question_between_bank_and_composition" EntityType="Self.include_question_between_bank_and_composition" />
+          <EntitySet Name="include_question_between_bank_and_questionandanswer" EntityType="Self.include_question_between_bank_and_questionandanswer" />
+          <EntitySet Name="include_question_between_bank_and_reading" EntityType="Self.include_question_between_bank_and_reading" />
+          <EntitySet Name="include_question_between_bank_and_selection" EntityType="Self.include_question_between_bank_and_selection" />
+          <EntitySet Name="include_question_between_bank_and_trueorfalse" EntityType="Self.include_question_between_bank_and_trueorfalse" />
+          <EntitySet Name="include_question_between_testpaper_and_completion" EntityType="Self.include_question_between_testpaper_and_completion" />
+          <EntitySet Name="include_question_between_testpaper_and_composition" EntityType="Self.include_question_between_testpaper_and_composition" />
+          <EntitySet Name="include_question_between_testpaper_and_questionandanswer" EntityType="Self.include_question_between_testpaper_and_questionandanswer" />
+          <EntitySet Name="include_question_between_testpaper_and_reading" EntityType="Self.include_question_between_testpaper_and_reading" />
+          <EntitySet Name="include_question_between_testpaper_and_selection" EntityType="Self.include_question_between_testpaper_and_selection" />
+          <EntitySet Name="include_question_between_testpaper_and_trueorfalse" EntityType="Self.include_question_between_testpaper_and_trueorfalse" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="DBEntities2">
+          <EntitySetMapping Name="add_typeofwork_between_administrator_and_typeofwork">
+            <EntityTypeMapping TypeName="Model1.add_typeofwork_between_administrator_and_typeofwork">
+              <MappingFragment StoreEntitySet="add_typeofwork_between_administrator_and_typeofwork">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="IDOfTypeOfWork" ColumnName="IDOfTypeOfWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="administrator">
+            <EntityTypeMapping TypeName="Model1.administrator">
+              <MappingFragment StoreEntitySet="administrator">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="arrange_testgame_between_ordinaryuser_and_testpaper">
+            <EntityTypeMapping TypeName="Model1.arrange_testgame_between_ordinaryuser_and_testpaper">
+              <MappingFragment StoreEntitySet="arrange_testgame_between_ordinaryuser_and_testpaper">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TypeOfWork" ColumnName="TypeOfWork" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="PassMark" ColumnName="PassMark" />
+                <ScalarProperty Name="Marker" ColumnName="Marker" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="binding_typeofwork_between_questionbank_and_typeofwork">
+            <EntityTypeMapping TypeName="Model1.binding_typeofwork_between_questionbank_and_typeofwork">
+              <MappingFragment StoreEntitySet="binding_typeofwork_between_questionbank_and_typeofwork">
+                <ScalarProperty Name="IDOfQuestionBank" ColumnName="IDOfQuestionBank" />
+                <ScalarProperty Name="IDOfTypeOfWork" ColumnName="IDOfTypeOfWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="binding_typeofwork_between_testpaper_and_typeofwork">
+            <EntityTypeMapping TypeName="Model1.binding_typeofwork_between_testpaper_and_typeofwork">
+              <MappingFragment StoreEntitySet="binding_typeofwork_between_testpaper_and_typeofwork">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="IDOfTypeOfWork" ColumnName="IDOfTypeOfWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_completion">
+            <EntityTypeMapping TypeName="Model1.collect_question_between_ordinaryuser_and_completion">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_completion">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TimeOfCollection" ColumnName="TimeOfCollection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_composition">
+            <EntityTypeMapping TypeName="Model1.collect_question_between_ordinaryuser_and_composition">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_composition">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TimeOfCollection" ColumnName="TimeOfCollection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_questionandanswer">
+            <EntityTypeMapping TypeName="Model1.collect_question_between_ordinaryuser_and_questionandanswer">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_questionandanswer">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TimeOfCollection" ColumnName="TimeOfCollection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_reading">
+            <EntityTypeMapping TypeName="Model1.collect_question_between_ordinaryuser_and_reading">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_reading">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TimeOfCollection" ColumnName="TimeOfCollection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_selection">
+            <EntityTypeMapping TypeName="Model1.collect_question_between_ordinaryuser_and_selection">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_selection">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TimeOfCollection" ColumnName="TimeOfCollection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_trueorfalse">
+            <EntityTypeMapping TypeName="Model1.collect_question_between_ordinaryuser_and_trueorfalse">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_trueorfalse">
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="TimeOfCollection" ColumnName="TimeOfCollection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comment_between_administrator_and_ordinaryuser">
+            <EntityTypeMapping TypeName="Model1.comment_between_administrator_and_ordinaryuser">
+              <MappingFragment StoreEntitySet="comment_between_administrator_and_ordinaryuser">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="TimeOfComment" ColumnName="TimeOfComment" />
+                <ScalarProperty Name="ContentOfComment" ColumnName="ContentOfComment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="completion">
+            <EntityTypeMapping TypeName="Model1.completion">
+              <MappingFragment StoreEntitySet="completion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="composition">
+            <EntityTypeMapping TypeName="Model1.composition">
+              <MappingFragment StoreEntitySet="composition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="establish_questionbank_between_administrator_and_questionbank">
+            <EntityTypeMapping TypeName="Model1.establish_questionbank_between_administrator_and_questionbank">
+              <MappingFragment StoreEntitySet="establish_questionbank_between_administrator_and_questionbank">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="IDOfQuestionBank" ColumnName="IDOfQuestionBank" />
+                <ScalarProperty Name="TimeOfEstablish" ColumnName="TimeOfEstablish" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="establish_questionbank_between_organizationuser_and_questionbank">
+            <EntityTypeMapping TypeName="Model1.establish_questionbank_between_organizationuser_and_questionbank">
+              <MappingFragment StoreEntitySet="establish_questionbank_between_organizationuser_and_questionbank">
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+                <ScalarProperty Name="QuestionBankID" ColumnName="QuestionBankID" />
+                <ScalarProperty Name="TimeOfEstablish" ColumnName="TimeOfEstablish" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="generate_testpaper_between_administrator_and_testpaper">
+            <EntityTypeMapping TypeName="Model1.generate_testpaper_between_administrator_and_testpaper">
+              <MappingFragment StoreEntitySet="generate_testpaper_between_administrator_and_testpaper">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="generate_testpaper_between_organizationuser_and_testpaper">
+            <EntityTypeMapping TypeName="Model1.generate_testpaper_between_organizationuser_and_testpaper">
+              <MappingFragment StoreEntitySet="generate_testpaper_between_organizationuser_and_testpaper">
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="having_organizationuser_between_organ_and_organuser">
+            <EntityTypeMapping TypeName="Model1.having_organizationuser_between_organ_and_organuser">
+              <MappingFragment StoreEntitySet="having_organizationuser_between_organ_and_organuser">
+                <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="having_student_between_organization_and_ordinaryuser">
+            <EntityTypeMapping TypeName="Model1.having_student_between_organization_and_ordinaryuser">
+              <MappingFragment StoreEntitySet="having_student_between_organization_and_ordinaryuser">
+                <ScalarProperty Name="OrganizationID" ColumnName="OrganizationID" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+            <EntityTypeMapping TypeName="Model1.notice_of_testgame_between_organizationuser_and_ordinaryuser">
+              <MappingFragment StoreEntitySet="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+                <ScalarProperty Name="ContentOfNotice" ColumnName="ContentOfNotice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordinaryuser">
+            <EntityTypeMapping TypeName="Model1.ordinaryuser">
+              <MappingFragment StoreEntitySet="ordinaryuser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="isLocking" ColumnName="isLocking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organization">
+            <EntityTypeMapping TypeName="Model1.organization">
+              <MappingFragment StoreEntitySet="organization">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organizationuser">
+            <EntityTypeMapping TypeName="Model1.organizationuser">
+              <MappingFragment StoreEntitySet="organizationuser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questionandanswer">
+            <EntityTypeMapping TypeName="Model1.questionandanswer">
+              <MappingFragment StoreEntitySet="questionandanswer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questionbank">
+            <EntityTypeMapping TypeName="Model1.questionbank">
+              <MappingFragment StoreEntitySet="questionbank">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reading">
+            <EntityTypeMapping TypeName="Model1.reading">
+              <MappingFragment StoreEntitySet="reading">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="QuestionA" ColumnName="QuestionA" />
+                <ScalarProperty Name="QuestionB" ColumnName="QuestionB" />
+                <ScalarProperty Name="QuestionC" ColumnName="QuestionC" />
+                <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+                <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+                <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+                <ScalarProperty Name="Score1" ColumnName="Score1" />
+                <ScalarProperty Name="Score2" ColumnName="Score2" />
+                <ScalarProperty Name="Score3" ColumnName="Score3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="selection">
+            <EntityTypeMapping TypeName="Model1.selection">
+              <MappingFragment StoreEntitySet="selection">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="OptionA" ColumnName="OptionA" />
+                <ScalarProperty Name="OptionB" ColumnName="OptionB" />
+                <ScalarProperty Name="OptionC" ColumnName="OptionC" />
+                <ScalarProperty Name="OptionD" ColumnName="OptionD" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="systemnotice_between_administrator_organizationuser_ordinaryuser">
+            <EntityTypeMapping TypeName="Model1.systemnotice_between_administrator_organizationuser_ordinaryuser">
+              <MappingFragment StoreEntitySet="systemnotice_between_administrator_organizationuser_ordinaryuser">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+                <ScalarProperty Name="ContentOfNotice" ColumnName="ContentOfNotice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="testpaper">
+            <EntityTypeMapping TypeName="Model1.testpaper">
+              <MappingFragment StoreEntitySet="testpaper">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TestPaperName" ColumnName="TestPaperName" />
+                <ScalarProperty Name="TestPaperScore" ColumnName="TestPaperScore" />
+                <ScalarProperty Name="TimeIntervalOfSavingAnswer" ColumnName="TimeIntervalOfSavingAnswer" />
+                <ScalarProperty Name="CanUseAgain" ColumnName="CanUseAgain" />
+                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
+                <ScalarProperty Name="PassMark" ColumnName="PassMark" />
+                <ScalarProperty Name="Amount1" ColumnName="Amount1" />
+                <ScalarProperty Name="Amount2" ColumnName="Amount2" />
+                <ScalarProperty Name="Amount3" ColumnName="Amount3" />
+                <ScalarProperty Name="Amount4" ColumnName="Amount4" />
+                <ScalarProperty Name="Amount5" ColumnName="Amount5" />
+                <ScalarProperty Name="Amount6" ColumnName="Amount6" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trueorfalse">
+            <EntityTypeMapping TypeName="Model1.trueorfalse">
+              <MappingFragment StoreEntitySet="trueorfalse">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typeofwork">
+            <EntityTypeMapping TypeName="Model1.typeofwork">
+              <MappingFragment StoreEntitySet="typeofwork">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_bank_and_completion">
+            <EntityTypeMapping TypeName="Model1.include_question_between_bank_and_completion">
+              <MappingFragment StoreEntitySet="include_question_between_bank_and_completion">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_bank_and_composition">
+            <EntityTypeMapping TypeName="Model1.include_question_between_bank_and_composition">
+              <MappingFragment StoreEntitySet="include_question_between_bank_and_composition">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_bank_and_questionandanswer">
+            <EntityTypeMapping TypeName="Model1.include_question_between_bank_and_questionandanswer">
+              <MappingFragment StoreEntitySet="include_question_between_bank_and_questionandanswer">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_bank_and_reading">
+            <EntityTypeMapping TypeName="Model1.include_question_between_bank_and_reading">
+              <MappingFragment StoreEntitySet="include_question_between_bank_and_reading">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_bank_and_selection">
+            <EntityTypeMapping TypeName="Model1.include_question_between_bank_and_selection">
+              <MappingFragment StoreEntitySet="include_question_between_bank_and_selection">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_bank_and_trueorfalse">
+            <EntityTypeMapping TypeName="Model1.include_question_between_bank_and_trueorfalse">
+              <MappingFragment StoreEntitySet="include_question_between_bank_and_trueorfalse">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_testpaper_and_completion">
+            <EntityTypeMapping TypeName="Model1.include_question_between_testpaper_and_completion">
+              <MappingFragment StoreEntitySet="include_question_between_testpaper_and_completion">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_testpaper_and_composition">
+            <EntityTypeMapping TypeName="Model1.include_question_between_testpaper_and_composition">
+              <MappingFragment StoreEntitySet="include_question_between_testpaper_and_composition">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_testpaper_and_questionandanswer">
+            <EntityTypeMapping TypeName="Model1.include_question_between_testpaper_and_questionandanswer">
+              <MappingFragment StoreEntitySet="include_question_between_testpaper_and_questionandanswer">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_testpaper_and_reading">
+            <EntityTypeMapping TypeName="Model1.include_question_between_testpaper_and_reading">
+              <MappingFragment StoreEntitySet="include_question_between_testpaper_and_reading">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_testpaper_and_selection">
+            <EntityTypeMapping TypeName="Model1.include_question_between_testpaper_and_selection">
+              <MappingFragment StoreEntitySet="include_question_between_testpaper_and_selection">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="include_question_between_testpaper_and_trueorfalse">
+            <EntityTypeMapping TypeName="Model1.include_question_between_testpaper_and_trueorfalse">
+              <MappingFragment StoreEntitySet="include_question_between_testpaper_and_trueorfalse">
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -9,6 +9,6 @@ namespace AdministratorSystem.Models
     public interface IAdministratorRepository
     {
         // 验证登录
-        bool ValidateLogOn(string id, string pwd);
+        bool ValidateLogOn(administrator admin);
     }
 }
