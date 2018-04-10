@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdministratorSystem", "AdministratorSystem\AdministratorSystem.csproj", "{91286A83-2DB3-42C0-A8E7-2F2D26398481}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdministratorWebUI", "AdministratorWebUI\AdministratorWebUI.csproj", "{805A836D-907E-4278-A449-283D41488559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{8E1D2684-D5ED-437C-BAAD-46B74D127BA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{91286A83-2DB3-42C0-A8E7-2F2D26398481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91286A83-2DB3-42C0-A8E7-2F2D26398481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91286A83-2DB3-42C0-A8E7-2F2D26398481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805A836D-907E-4278-A449-283D41488559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805A836D-907E-4278-A449-283D41488559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805A836D-907E-4278-A449-283D41488559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805A836D-907E-4278-A449-283D41488559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E1D2684-D5ED-437C-BAAD-46B74D127BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E1D2684-D5ED-437C-BAAD-46B74D127BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E1D2684-D5ED-437C-BAAD-46B74D127BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E1D2684-D5ED-437C-BAAD-46B74D127BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

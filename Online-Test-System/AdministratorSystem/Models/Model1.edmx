@@ -1,0 +1,1651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="add_typeofwork_between_administrator_and_typeofwork">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="NameOfTypeOfWork" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="NameOfTypeOfWork" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="administrator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arrange_testgame_between_ordinaryuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TypeOfWork" Type="varchar" MaxLength="20" />
+          <Property Name="Time" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Grade" Type="smallint" />
+          <Property Name="PassMark" Type="smallint" Nullable="false" />
+          <Property Name="Marker" Type="varchar" MaxLength="20" />
+          <Property Name="Info" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="binding_typeofwork_between_questionbank_and_typeofwork">
+          <Key>
+            <PropertyRef Name="NameOfQuestionBank" />
+            <PropertyRef Name="NameOfTypeOfWork" />
+          </Key>
+          <Property Name="NameOfQuestionBank" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NameOfTypeOfWork" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="binding_typeofwork_between_testpaper_and_typeofwork">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="NameOfTypeOfWork" />
+          </Key>
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="NameOfTypeOfWork" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_question">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="TimeOfCollecting" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comment_between_administrator_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TimeOfComment" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ContentOfComment" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_administrator_and_questionbank">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="NameOfQuestionBank" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="NameOfQuestionBank" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TimeOfEstablish" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_organizationuser_and_questionbank">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="QuestionBankName" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="QuestionBankName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TimeOfEstablish" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_administrator_and_testpaper">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_organizationuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="having_organizationuser_">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+            <PropertyRef Name="OrganizationUserID" />
+          </Key>
+          <Property Name="OrganizationID" Type="int" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="having_student_between_organization_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_questionbank_and_question">
+          <Key>
+            <PropertyRef Name="NameOfQuestionBank" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="NameOfQuestionBank" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="include_question_between_testpaper_and_question">
+          <Key>
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="TestPaperID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordinaryuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RealName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IDCard" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="RegisterTime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="isLocking" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organizationuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCard" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="RegisterTime" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TrueOrFalse" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Completion" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="SingleChoice" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="MultipleChoice" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="QuestionAndAnswer" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Reading" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Essay" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Score" Type="tinyint" Nullable="false" />
+          <Property Name="StandardAnswer" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="questionbank">
+          <Key>
+            <PropertyRef Name="BankName" />
+          </Key>
+          <Property Name="BankName" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="systemnotice_">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="int" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="int" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="testpaper">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestPaperName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TestPaperScore" Type="smallint" Nullable="false" />
+          <Property Name="TimeIntervalOfSavingAnswer" Type="smallint" Nullable="false" />
+          <Property Name="CanUseAgain" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="OverTime" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="typeofwork">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="Administrator1">
+          <End Role="administrator" Type="Self.administrator" Multiplicity="1" />
+          <End Role="generate_testpaper_between_administrator_and_testpaper" Type="Self.generate_testpaper_between_administrator_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_administrator_and_testpaper">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Administrator11">
+          <End Role="administrator" Type="Self.administrator" Multiplicity="1" />
+          <End Role="add_typeofwork_between_administrator_and_typeofwork" Type="Self.add_typeofwork_between_administrator_and_typeofwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="add_typeofwork_between_administrator_and_typeofwork">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Administrator16">
+          <End Role="administrator" Type="Self.administrator" Multiplicity="1" />
+          <End Role="systemnotice_" Type="Self.systemnotice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="systemnotice_">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Administrator17">
+          <End Role="administrator" Type="Self.administrator" Multiplicity="1" />
+          <End Role="comment_between_administrator_and_ordinaryuser" Type="Self.comment_between_administrator_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="comment_between_administrator_and_ordinaryuser">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Administrator2">
+          <End Role="administrator" Type="Self.administrator" Multiplicity="1" />
+          <End Role="establish_questionbank_between_administrator_and_questionbank" Type="Self.establish_questionbank_between_administrator_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_administrator_and_questionbank">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser1">
+          <End Role="ordinaryuser" Type="Self.ordinaryuser" Multiplicity="1" />
+          <End Role="arrange_testgame_between_ordinaryuser_and_testpaper" Type="Self.arrange_testgame_between_ordinaryuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="arrange_testgame_between_ordinaryuser_and_testpaper">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser11">
+          <End Role="ordinaryuser" Type="Self.ordinaryuser" Multiplicity="1" />
+          <End Role="having_student_between_organization_and_ordinaryuser" Type="Self.having_student_between_organization_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="having_student_between_organization_and_ordinaryuser">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser14">
+          <End Role="ordinaryuser" Type="Self.ordinaryuser" Multiplicity="1" />
+          <End Role="collect_question_between_ordinaryuser_and_question" Type="Self.collect_question_between_ordinaryuser_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="collect_question_between_ordinaryuser_and_question">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser15">
+          <End Role="ordinaryuser" Type="Self.ordinaryuser" Multiplicity="1" />
+          <End Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" Type="Self.notice_of_testgame_between_organizationuser_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser16">
+          <End Role="ordinaryuser" Type="Self.ordinaryuser" Multiplicity="1" />
+          <End Role="systemnotice_" Type="Self.systemnotice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="systemnotice_">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser17">
+          <End Role="ordinaryuser" Type="Self.ordinaryuser" Multiplicity="1" />
+          <End Role="comment_between_administrator_and_ordinaryuser" Type="Self.comment_between_administrator_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="comment_between_administrator_and_ordinaryuser">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Organization1">
+          <End Role="organization" Type="Self.organization" Multiplicity="1" />
+          <End Role="having_organizationuser_" Type="Self.having_organizationuser_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="having_organizationuser_">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Organization11">
+          <End Role="organization" Type="Self.organization" Multiplicity="1" />
+          <End Role="having_student_between_organization_and_ordinaryuser" Type="Self.having_student_between_organization_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organization">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="having_student_between_organization_and_ordinaryuser">
+              <PropertyRef Name="OrganizationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser1">
+          <End Role="organizationuser" Type="Self.organizationuser" Multiplicity="1" />
+          <End Role="having_organizationuser_" Type="Self.having_organizationuser_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="having_organizationuser_">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser12">
+          <End Role="organizationuser" Type="Self.organizationuser" Multiplicity="1" />
+          <End Role="establish_questionbank_between_organizationuser_and_questionbank" Type="Self.establish_questionbank_between_organizationuser_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_organizationuser_and_questionbank">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser13">
+          <End Role="organizationuser" Type="Self.organizationuser" Multiplicity="1" />
+          <End Role="generate_testpaper_between_organizationuser_and_testpaper" Type="Self.generate_testpaper_between_organizationuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_organizationuser_and_testpaper">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser15">
+          <End Role="organizationuser" Type="Self.organizationuser" Multiplicity="1" />
+          <End Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" Type="Self.notice_of_testgame_between_organizationuser_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser16">
+          <End Role="organizationuser" Type="Self.organizationuser" Multiplicity="1" />
+          <End Role="systemnotice_" Type="Self.systemnotice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="systemnotice_">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Question1">
+          <End Role="question" Type="Self.question" Multiplicity="1" />
+          <End Role="include_question_between_testpaper_and_question" Type="Self.include_question_between_testpaper_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="include_question_between_testpaper_and_question">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Question11">
+          <End Role="question" Type="Self.question" Multiplicity="1" />
+          <End Role="include_question_between_questionbank_and_question" Type="Self.include_question_between_questionbank_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="include_question_between_questionbank_and_question">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Question14">
+          <End Role="question" Type="Self.question" Multiplicity="1" />
+          <End Role="collect_question_between_ordinaryuser_and_question" Type="Self.collect_question_between_ordinaryuser_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="collect_question_between_ordinaryuser_and_question">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBank1">
+          <End Role="questionbank" Type="Self.questionbank" Multiplicity="1" />
+          <End Role="binding_typeofwork_between_questionbank_and_typeofwork" Type="Self.binding_typeofwork_between_questionbank_and_typeofwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionbank">
+              <PropertyRef Name="BankName" />
+            </Principal>
+            <Dependent Role="binding_typeofwork_between_questionbank_and_typeofwork">
+              <PropertyRef Name="NameOfQuestionBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBank11">
+          <End Role="questionbank" Type="Self.questionbank" Multiplicity="1" />
+          <End Role="include_question_between_questionbank_and_question" Type="Self.include_question_between_questionbank_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionbank">
+              <PropertyRef Name="BankName" />
+            </Principal>
+            <Dependent Role="include_question_between_questionbank_and_question">
+              <PropertyRef Name="NameOfQuestionBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBank12">
+          <End Role="questionbank" Type="Self.questionbank" Multiplicity="1" />
+          <End Role="establish_questionbank_between_organizationuser_and_questionbank" Type="Self.establish_questionbank_between_organizationuser_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionbank">
+              <PropertyRef Name="BankName" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_organizationuser_and_questionbank">
+              <PropertyRef Name="QuestionBankName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBank2">
+          <End Role="questionbank" Type="Self.questionbank" Multiplicity="1" />
+          <End Role="establish_questionbank_between_administrator_and_questionbank" Type="Self.establish_questionbank_between_administrator_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionbank">
+              <PropertyRef Name="BankName" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_administrator_and_questionbank">
+              <PropertyRef Name="NameOfQuestionBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper1">
+          <End Role="testpaper" Type="Self.testpaper" Multiplicity="1" />
+          <End Role="generate_testpaper_between_administrator_and_testpaper" Type="Self.generate_testpaper_between_administrator_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_administrator_and_testpaper">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper11">
+          <End Role="testpaper" Type="Self.testpaper" Multiplicity="1" />
+          <End Role="binding_typeofwork_between_testpaper_and_typeofwork" Type="Self.binding_typeofwork_between_testpaper_and_typeofwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="binding_typeofwork_between_testpaper_and_typeofwork">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper13">
+          <End Role="testpaper" Type="Self.testpaper" Multiplicity="1" />
+          <End Role="generate_testpaper_between_organizationuser_and_testpaper" Type="Self.generate_testpaper_between_organizationuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_organizationuser_and_testpaper">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper3">
+          <End Role="testpaper" Type="Self.testpaper" Multiplicity="1" />
+          <End Role="include_question_between_testpaper_and_question" Type="Self.include_question_between_testpaper_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="include_question_between_testpaper_and_question">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper4">
+          <End Role="testpaper" Type="Self.testpaper" Multiplicity="1" />
+          <End Role="arrange_testgame_between_ordinaryuser_and_testpaper" Type="Self.arrange_testgame_between_ordinaryuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="arrange_testgame_between_ordinaryuser_and_testpaper">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TypeOfWork1">
+          <End Role="typeofwork" Type="Self.typeofwork" Multiplicity="1" />
+          <End Role="add_typeofwork_between_administrator_and_typeofwork" Type="Self.add_typeofwork_between_administrator_and_typeofwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeofwork">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="add_typeofwork_between_administrator_and_typeofwork">
+              <PropertyRef Name="NameOfTypeOfWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TypeOfWork11">
+          <End Role="typeofwork" Type="Self.typeofwork" Multiplicity="1" />
+          <End Role="binding_typeofwork_between_testpaper_and_typeofwork" Type="Self.binding_typeofwork_between_testpaper_and_typeofwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeofwork">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="binding_typeofwork_between_testpaper_and_typeofwork">
+              <PropertyRef Name="NameOfTypeOfWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TypeOfWork2">
+          <End Role="typeofwork" Type="Self.typeofwork" Multiplicity="1" />
+          <End Role="binding_typeofwork_between_questionbank_and_typeofwork" Type="Self.binding_typeofwork_between_questionbank_and_typeofwork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeofwork">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="binding_typeofwork_between_questionbank_and_typeofwork">
+              <PropertyRef Name="NameOfTypeOfWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="add_typeofwork_between_administrator_and_typeofwork" EntityType="Self.add_typeofwork_between_administrator_and_typeofwork" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="administrator" EntityType="Self.administrator" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="arrange_testgame_between_ordinaryuser_and_testpaper" EntityType="Self.arrange_testgame_between_ordinaryuser_and_testpaper" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="binding_typeofwork_between_questionbank_and_typeofwork" EntityType="Self.binding_typeofwork_between_questionbank_and_typeofwork" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="binding_typeofwork_between_testpaper_and_typeofwork" EntityType="Self.binding_typeofwork_between_testpaper_and_typeofwork" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_question" EntityType="Self.collect_question_between_ordinaryuser_and_question" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="comment_between_administrator_and_ordinaryuser" EntityType="Self.comment_between_administrator_and_ordinaryuser" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="establish_questionbank_between_administrator_and_questionbank" EntityType="Self.establish_questionbank_between_administrator_and_questionbank" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="establish_questionbank_between_organizationuser_and_questionbank" EntityType="Self.establish_questionbank_between_organizationuser_and_questionbank" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="generate_testpaper_between_administrator_and_testpaper" EntityType="Self.generate_testpaper_between_administrator_and_testpaper" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="generate_testpaper_between_organizationuser_and_testpaper" EntityType="Self.generate_testpaper_between_organizationuser_and_testpaper" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="having_organizationuser_" EntityType="Self.having_organizationuser_" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="having_student_between_organization_and_ordinaryuser" EntityType="Self.having_student_between_organization_and_ordinaryuser" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="include_question_between_questionbank_and_question" EntityType="Self.include_question_between_questionbank_and_question" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="include_question_between_testpaper_and_question" EntityType="Self.include_question_between_testpaper_and_question" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntityType="Self.notice_of_testgame_between_organizationuser_and_ordinaryuser" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="ordinaryuser" EntityType="Self.ordinaryuser" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="organization" EntityType="Self.organization" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="organizationuser" EntityType="Self.organizationuser" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="question" EntityType="Self.question" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="questionbank" EntityType="Self.questionbank" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="systemnotice_" EntityType="Self.systemnotice_" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="testpaper" EntityType="Self.testpaper" Schema="online-test-system" store:Type="Tables" />
+          <EntitySet Name="typeofwork" EntityType="Self.typeofwork" Schema="online-test-system" store:Type="Tables" />
+          <AssociationSet Name="Administrator1" Association="Self.Administrator1">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="generate_testpaper_between_administrator_and_testpaper" EntitySet="generate_testpaper_between_administrator_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="Administrator11" Association="Self.Administrator11">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="add_typeofwork_between_administrator_and_typeofwork" EntitySet="add_typeofwork_between_administrator_and_typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="Administrator16" Association="Self.Administrator16">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="systemnotice_" EntitySet="systemnotice_" />
+          </AssociationSet>
+          <AssociationSet Name="Administrator17" Association="Self.Administrator17">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="comment_between_administrator_and_ordinaryuser" EntitySet="comment_between_administrator_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="Administrator2" Association="Self.Administrator2">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="establish_questionbank_between_administrator_and_questionbank" EntitySet="establish_questionbank_between_administrator_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser1" Association="Self.OrdinaryUser1">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="arrange_testgame_between_ordinaryuser_and_testpaper" EntitySet="arrange_testgame_between_ordinaryuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser11" Association="Self.OrdinaryUser11">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="having_student_between_organization_and_ordinaryuser" EntitySet="having_student_between_organization_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser14" Association="Self.OrdinaryUser14">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="collect_question_between_ordinaryuser_and_question" EntitySet="collect_question_between_ordinaryuser_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser15" Association="Self.OrdinaryUser15">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntitySet="notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser16" Association="Self.OrdinaryUser16">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="systemnotice_" EntitySet="systemnotice_" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser17" Association="Self.OrdinaryUser17">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="comment_between_administrator_and_ordinaryuser" EntitySet="comment_between_administrator_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="Organization1" Association="Self.Organization1">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="having_organizationuser_" EntitySet="having_organizationuser_" />
+          </AssociationSet>
+          <AssociationSet Name="Organization11" Association="Self.Organization11">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="having_student_between_organization_and_ordinaryuser" EntitySet="having_student_between_organization_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser1" Association="Self.OrganizationUser1">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="having_organizationuser_" EntitySet="having_organizationuser_" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser12" Association="Self.OrganizationUser12">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="establish_questionbank_between_organizationuser_and_questionbank" EntitySet="establish_questionbank_between_organizationuser_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser13" Association="Self.OrganizationUser13">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="generate_testpaper_between_organizationuser_and_testpaper" EntitySet="generate_testpaper_between_organizationuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser15" Association="Self.OrganizationUser15">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntitySet="notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser16" Association="Self.OrganizationUser16">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="systemnotice_" EntitySet="systemnotice_" />
+          </AssociationSet>
+          <AssociationSet Name="Question1" Association="Self.Question1">
+            <End Role="question" EntitySet="question" />
+            <End Role="include_question_between_testpaper_and_question" EntitySet="include_question_between_testpaper_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="Question11" Association="Self.Question11">
+            <End Role="question" EntitySet="question" />
+            <End Role="include_question_between_questionbank_and_question" EntitySet="include_question_between_questionbank_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="Question14" Association="Self.Question14">
+            <End Role="question" EntitySet="question" />
+            <End Role="collect_question_between_ordinaryuser_and_question" EntitySet="collect_question_between_ordinaryuser_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBank1" Association="Self.QuestionBank1">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="binding_typeofwork_between_questionbank_and_typeofwork" EntitySet="binding_typeofwork_between_questionbank_and_typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBank11" Association="Self.QuestionBank11">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="include_question_between_questionbank_and_question" EntitySet="include_question_between_questionbank_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBank12" Association="Self.QuestionBank12">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="establish_questionbank_between_organizationuser_and_questionbank" EntitySet="establish_questionbank_between_organizationuser_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBank2" Association="Self.QuestionBank2">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="establish_questionbank_between_administrator_and_questionbank" EntitySet="establish_questionbank_between_administrator_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper1" Association="Self.TestPaper1">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="generate_testpaper_between_administrator_and_testpaper" EntitySet="generate_testpaper_between_administrator_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper11" Association="Self.TestPaper11">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="binding_typeofwork_between_testpaper_and_typeofwork" EntitySet="binding_typeofwork_between_testpaper_and_typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper13" Association="Self.TestPaper13">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="generate_testpaper_between_organizationuser_and_testpaper" EntitySet="generate_testpaper_between_organizationuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper3" Association="Self.TestPaper3">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="include_question_between_testpaper_and_question" EntitySet="include_question_between_testpaper_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper4" Association="Self.TestPaper4">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="arrange_testgame_between_ordinaryuser_and_testpaper" EntitySet="arrange_testgame_between_ordinaryuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="TypeOfWork1" Association="Self.TypeOfWork1">
+            <End Role="typeofwork" EntitySet="typeofwork" />
+            <End Role="add_typeofwork_between_administrator_and_typeofwork" EntitySet="add_typeofwork_between_administrator_and_typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="TypeOfWork11" Association="Self.TypeOfWork11">
+            <End Role="typeofwork" EntitySet="typeofwork" />
+            <End Role="binding_typeofwork_between_testpaper_and_typeofwork" EntitySet="binding_typeofwork_between_testpaper_and_typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="TypeOfWork2" Association="Self.TypeOfWork2">
+            <End Role="typeofwork" EntitySet="typeofwork" />
+            <End Role="binding_typeofwork_between_questionbank_and_typeofwork" EntitySet="binding_typeofwork_between_questionbank_and_typeofwork" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="administrator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Pwd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="generate_testpaper_between_administrator_and_testpaper" Relationship="Model.Administrator1" FromRole="administrator" ToRole="generate_testpaper_between_administrator_and_testpaper" />
+          <NavigationProperty Name="establish_questionbank_between_administrator_and_questionbank" Relationship="Model.Administrator2" FromRole="administrator" ToRole="establish_questionbank_between_administrator_and_questionbank" />
+          <NavigationProperty Name="typeofwork" Relationship="Model.add_typeofwork_between_administrator_and_typeofwork" FromRole="administrator" ToRole="typeofwork" />
+          <NavigationProperty Name="systemnotice_" Relationship="Model.Administrator16" FromRole="administrator" ToRole="systemnotice_" />
+          <NavigationProperty Name="comment_between_administrator_and_ordinaryuser" Relationship="Model.Administrator17" FromRole="administrator" ToRole="comment_between_administrator_and_ordinaryuser" />
+        </EntityType>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="administrator" EntityType="Self.administrator" />
+          <EntitySet Name="ordinaryuser" EntityType="Model.ordinaryuser" />
+          <EntitySet Name="establish_questionbank_between_administrator_and_questionbank" EntityType="Model.establish_questionbank_between_administrator_and_questionbank" />
+          <EntitySet Name="generate_testpaper_between_administrator_and_testpaper" EntityType="Model.generate_testpaper_between_administrator_and_testpaper" />
+          <EntitySet Name="question" EntityType="Model.question" />
+          <EntitySet Name="questionbank" EntityType="Model.questionbank" />
+          <EntitySet Name="testpaper" EntityType="Model.testpaper" />
+          <EntitySet Name="typeofwork" EntityType="Model.typeofwork" />
+          <AssociationSet Name="Administrator1" Association="Model.Administrator1">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="generate_testpaper_between_administrator_and_testpaper" EntitySet="generate_testpaper_between_administrator_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="Administrator2" Association="Model.Administrator2">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="establish_questionbank_between_administrator_and_questionbank" EntitySet="establish_questionbank_between_administrator_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBank2" Association="Model.QuestionBank2">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="establish_questionbank_between_administrator_and_questionbank" EntitySet="establish_questionbank_between_administrator_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper1" Association="Model.TestPaper1">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="generate_testpaper_between_administrator_and_testpaper" EntitySet="generate_testpaper_between_administrator_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="add_typeofwork_between_administrator_and_typeofwork" Association="Model.add_typeofwork_between_administrator_and_typeofwork">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="typeofwork" EntitySet="typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="binding_typeofwork_between_questionbank_and_typeofwork" Association="Model.binding_typeofwork_between_questionbank_and_typeofwork">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="typeofwork" EntitySet="typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="binding_typeofwork_between_testpaper_and_typeofwork" Association="Model.binding_typeofwork_between_testpaper_and_typeofwork">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="typeofwork" EntitySet="typeofwork" />
+          </AssociationSet>
+          <AssociationSet Name="include_question_between_questionbank_and_question" Association="Model.include_question_between_questionbank_and_question">
+            <End Role="question" EntitySet="question" />
+            <End Role="questionbank" EntitySet="questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="include_question_between_testpaper_and_question" Association="Model.include_question_between_testpaper_and_question">
+            <End Role="question" EntitySet="question" />
+            <End Role="testpaper" EntitySet="testpaper" />
+          </AssociationSet>
+          <EntitySet Name="arrange_testgame_between_ordinaryuser_and_testpaper" EntityType="Model.arrange_testgame_between_ordinaryuser_and_testpaper" />
+          <EntitySet Name="collect_question_between_ordinaryuser_and_question" EntityType="Model.collect_question_between_ordinaryuser_and_question" />
+          <EntitySet Name="comment_between_administrator_and_ordinaryuser" EntityType="Model.comment_between_administrator_and_ordinaryuser" />
+          <EntitySet Name="establish_questionbank_between_organizationuser_and_questionbank" EntityType="Model.establish_questionbank_between_organizationuser_and_questionbank" />
+          <EntitySet Name="generate_testpaper_between_organizationuser_and_testpaper" EntityType="Model.generate_testpaper_between_organizationuser_and_testpaper" />
+          <EntitySet Name="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntityType="Model.notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          <EntitySet Name="organization" EntityType="Model.organization" />
+          <EntitySet Name="organizationuser" EntityType="Model.organizationuser" />
+          <EntitySet Name="systemnotice_" EntityType="Model.systemnotice_" />
+          <AssociationSet Name="Administrator16" Association="Model.Administrator16">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="systemnotice_" EntitySet="systemnotice_" />
+          </AssociationSet>
+          <AssociationSet Name="Administrator17" Association="Model.Administrator17">
+            <End Role="administrator" EntitySet="administrator" />
+            <End Role="comment_between_administrator_and_ordinaryuser" EntitySet="comment_between_administrator_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser1" Association="Model.OrdinaryUser1">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="arrange_testgame_between_ordinaryuser_and_testpaper" EntitySet="arrange_testgame_between_ordinaryuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper4" Association="Model.TestPaper4">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="arrange_testgame_between_ordinaryuser_and_testpaper" EntitySet="arrange_testgame_between_ordinaryuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser14" Association="Model.OrdinaryUser14">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="collect_question_between_ordinaryuser_and_question" EntitySet="collect_question_between_ordinaryuser_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="Question14" Association="Model.Question14">
+            <End Role="question" EntitySet="question" />
+            <End Role="collect_question_between_ordinaryuser_and_question" EntitySet="collect_question_between_ordinaryuser_and_question" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser17" Association="Model.OrdinaryUser17">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="comment_between_administrator_and_ordinaryuser" EntitySet="comment_between_administrator_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser12" Association="Model.OrganizationUser12">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="establish_questionbank_between_organizationuser_and_questionbank" EntitySet="establish_questionbank_between_organizationuser_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionBank12" Association="Model.QuestionBank12">
+            <End Role="questionbank" EntitySet="questionbank" />
+            <End Role="establish_questionbank_between_organizationuser_and_questionbank" EntitySet="establish_questionbank_between_organizationuser_and_questionbank" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser13" Association="Model.OrganizationUser13">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="generate_testpaper_between_organizationuser_and_testpaper" EntitySet="generate_testpaper_between_organizationuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="TestPaper13" Association="Model.TestPaper13">
+            <End Role="testpaper" EntitySet="testpaper" />
+            <End Role="generate_testpaper_between_organizationuser_and_testpaper" EntitySet="generate_testpaper_between_organizationuser_and_testpaper" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser15" Association="Model.OrdinaryUser15">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntitySet="notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser15" Association="Model.OrganizationUser15">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" EntitySet="notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          </AssociationSet>
+          <AssociationSet Name="OrdinaryUser16" Association="Model.OrdinaryUser16">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="systemnotice_" EntitySet="systemnotice_" />
+          </AssociationSet>
+          <AssociationSet Name="OrganizationUser16" Association="Model.OrganizationUser16">
+            <End Role="organizationuser" EntitySet="organizationuser" />
+            <End Role="systemnotice_" EntitySet="systemnotice_" />
+          </AssociationSet>
+          <AssociationSet Name="having_organizationuser_" Association="Model.having_organizationuser_">
+            <End Role="organization" EntitySet="organization" />
+            <End Role="organizationuser" EntitySet="organizationuser" />
+          </AssociationSet>
+          <AssociationSet Name="having_student_between_organization_and_ordinaryuser" Association="Model.having_student_between_organization_and_ordinaryuser">
+            <End Role="ordinaryuser" EntitySet="ordinaryuser" />
+            <End Role="organization" EntitySet="organization" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ordinaryuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RealName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IDCard" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" />
+          <Property Name="isLocking" Type="SByte" />
+          <NavigationProperty Name="arrange_testgame_between_ordinaryuser_and_testpaper" Relationship="Model.OrdinaryUser1" FromRole="ordinaryuser" ToRole="arrange_testgame_between_ordinaryuser_and_testpaper" />
+          <NavigationProperty Name="collect_question_between_ordinaryuser_and_question" Relationship="Model.OrdinaryUser14" FromRole="ordinaryuser" ToRole="collect_question_between_ordinaryuser_and_question" />
+          <NavigationProperty Name="comment_between_administrator_and_ordinaryuser" Relationship="Model.OrdinaryUser17" FromRole="ordinaryuser" ToRole="comment_between_administrator_and_ordinaryuser" />
+          <NavigationProperty Name="notice_of_testgame_between_organizationuser_and_ordinaryuser" Relationship="Model.OrdinaryUser15" FromRole="ordinaryuser" ToRole="notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          <NavigationProperty Name="systemnotice_" Relationship="Model.OrdinaryUser16" FromRole="ordinaryuser" ToRole="systemnotice_" />
+          <NavigationProperty Name="organization" Relationship="Model.having_student_between_organization_and_ordinaryuser" FromRole="ordinaryuser" ToRole="organization" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_administrator_and_questionbank">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="NameOfQuestionBank" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="NameOfQuestionBank" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TimeOfEstablish" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="administrator" Relationship="Model.Administrator2" FromRole="establish_questionbank_between_administrator_and_questionbank" ToRole="administrator" />
+          <NavigationProperty Name="questionbank" Relationship="Model.QuestionBank2" FromRole="establish_questionbank_between_administrator_and_questionbank" ToRole="questionbank" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_administrator_and_testpaper">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="TestPaperID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="administrator" Relationship="Model.Administrator1" FromRole="generate_testpaper_between_administrator_and_testpaper" ToRole="administrator" />
+          <NavigationProperty Name="testpaper" Relationship="Model.TestPaper1" FromRole="generate_testpaper_between_administrator_and_testpaper" ToRole="testpaper" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TrueOrFalse" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Completion" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="SingleChoice" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="MultipleChoice" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionAndAnswer" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Reading" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Essay" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="SByte" Nullable="false" />
+          <Property Name="StandardAnswer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="questionbank" Relationship="Model.include_question_between_questionbank_and_question" FromRole="question" ToRole="questionbank" />
+          <NavigationProperty Name="testpaper" Relationship="Model.include_question_between_testpaper_and_question" FromRole="question" ToRole="testpaper" />
+          <NavigationProperty Name="collect_question_between_ordinaryuser_and_question" Relationship="Model.Question14" FromRole="question" ToRole="collect_question_between_ordinaryuser_and_question" />
+        </EntityType>
+        <EntityType Name="questionbank">
+          <Key>
+            <PropertyRef Name="BankName" />
+          </Key>
+          <Property Name="BankName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="establish_questionbank_between_administrator_and_questionbank" Relationship="Model.QuestionBank2" FromRole="questionbank" ToRole="establish_questionbank_between_administrator_and_questionbank" />
+          <NavigationProperty Name="typeofwork" Relationship="Model.binding_typeofwork_between_questionbank_and_typeofwork" FromRole="questionbank" ToRole="typeofwork" />
+          <NavigationProperty Name="question" Relationship="Model.include_question_between_questionbank_and_question" FromRole="questionbank" ToRole="question" />
+          <NavigationProperty Name="establish_questionbank_between_organizationuser_and_questionbank" Relationship="Model.QuestionBank12" FromRole="questionbank" ToRole="establish_questionbank_between_organizationuser_and_questionbank" />
+        </EntityType>
+        <EntityType Name="testpaper">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestPaperName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TestPaperScore" Type="Int16" Nullable="false" />
+          <Property Name="TimeIntervalOfSavingAnswer" Type="Int16" Nullable="false" />
+          <Property Name="CanUseAgain" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="OverTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="generate_testpaper_between_administrator_and_testpaper" Relationship="Model.TestPaper1" FromRole="testpaper" ToRole="generate_testpaper_between_administrator_and_testpaper" />
+          <NavigationProperty Name="typeofwork" Relationship="Model.binding_typeofwork_between_testpaper_and_typeofwork" FromRole="testpaper" ToRole="typeofwork" />
+          <NavigationProperty Name="question" Relationship="Model.include_question_between_testpaper_and_question" FromRole="testpaper" ToRole="question" />
+          <NavigationProperty Name="arrange_testgame_between_ordinaryuser_and_testpaper" Relationship="Model.TestPaper4" FromRole="testpaper" ToRole="arrange_testgame_between_ordinaryuser_and_testpaper" />
+          <NavigationProperty Name="generate_testpaper_between_organizationuser_and_testpaper" Relationship="Model.TestPaper13" FromRole="testpaper" ToRole="generate_testpaper_between_organizationuser_and_testpaper" />
+        </EntityType>
+        <EntityType Name="typeofwork">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="administrator" Relationship="Model.add_typeofwork_between_administrator_and_typeofwork" FromRole="typeofwork" ToRole="administrator" />
+          <NavigationProperty Name="questionbank" Relationship="Model.binding_typeofwork_between_questionbank_and_typeofwork" FromRole="typeofwork" ToRole="questionbank" />
+          <NavigationProperty Name="testpaper" Relationship="Model.binding_typeofwork_between_testpaper_and_typeofwork" FromRole="typeofwork" ToRole="testpaper" />
+        </EntityType>
+        <Association Name="Administrator1">
+          <End Type="Model.administrator" Role="administrator" Multiplicity="1" />
+          <End Type="Model.generate_testpaper_between_administrator_and_testpaper" Role="generate_testpaper_between_administrator_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_administrator_and_testpaper">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Administrator2">
+          <End Type="Model.administrator" Role="administrator" Multiplicity="1" />
+          <End Type="Model.establish_questionbank_between_administrator_and_questionbank" Role="establish_questionbank_between_administrator_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_administrator_and_questionbank">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBank2">
+          <End Type="Model.questionbank" Role="questionbank" Multiplicity="1" />
+          <End Type="Model.establish_questionbank_between_administrator_and_questionbank" Role="establish_questionbank_between_administrator_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionbank">
+              <PropertyRef Name="BankName" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_administrator_and_questionbank">
+              <PropertyRef Name="NameOfQuestionBank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper1">
+          <End Type="Model.testpaper" Role="testpaper" Multiplicity="1" />
+          <End Type="Model.generate_testpaper_between_administrator_and_testpaper" Role="generate_testpaper_between_administrator_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_administrator_and_testpaper">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="add_typeofwork_between_administrator_and_typeofwork">
+          <End Type="Model.administrator" Role="administrator" Multiplicity="*" />
+          <End Type="Model.typeofwork" Role="typeofwork" Multiplicity="*" />
+        </Association>
+        <Association Name="binding_typeofwork_between_questionbank_and_typeofwork">
+          <End Type="Model.questionbank" Role="questionbank" Multiplicity="*" />
+          <End Type="Model.typeofwork" Role="typeofwork" Multiplicity="*" />
+        </Association>
+        <Association Name="binding_typeofwork_between_testpaper_and_typeofwork">
+          <End Type="Model.testpaper" Role="testpaper" Multiplicity="*" />
+          <End Type="Model.typeofwork" Role="typeofwork" Multiplicity="*" />
+        </Association>
+        <Association Name="include_question_between_questionbank_and_question">
+          <End Type="Model.question" Role="question" Multiplicity="*" />
+          <End Type="Model.questionbank" Role="questionbank" Multiplicity="*" />
+        </Association>
+        <Association Name="include_question_between_testpaper_and_question">
+          <End Type="Model.question" Role="question" Multiplicity="*" />
+          <End Type="Model.testpaper" Role="testpaper" Multiplicity="*" />
+        </Association>
+        <EntityType Name="arrange_testgame_between_ordinaryuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="TestPaperID" />
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TestPaperID" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfWork" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="Int16" />
+          <Property Name="PassMark" Type="Int16" Nullable="false" />
+          <Property Name="Marker" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Info" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ordinaryuser" Relationship="Model.OrdinaryUser1" FromRole="arrange_testgame_between_ordinaryuser_and_testpaper" ToRole="ordinaryuser" />
+          <NavigationProperty Name="testpaper" Relationship="Model.TestPaper4" FromRole="arrange_testgame_between_ordinaryuser_and_testpaper" ToRole="testpaper" />
+        </EntityType>
+        <EntityType Name="collect_question_between_ordinaryuser_and_question">
+          <Key>
+            <PropertyRef Name="OrdinaryUserID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfCollecting" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ordinaryuser" Relationship="Model.OrdinaryUser14" FromRole="collect_question_between_ordinaryuser_and_question" ToRole="ordinaryuser" />
+          <NavigationProperty Name="question" Relationship="Model.Question14" FromRole="collect_question_between_ordinaryuser_and_question" ToRole="question" />
+        </EntityType>
+        <EntityType Name="comment_between_administrator_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfComment" Type="DateTime" Nullable="false" />
+          <Property Name="ContentOfComment" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="administrator" Relationship="Model.Administrator17" FromRole="comment_between_administrator_and_ordinaryuser" ToRole="administrator" />
+          <NavigationProperty Name="ordinaryuser" Relationship="Model.OrdinaryUser17" FromRole="comment_between_administrator_and_ordinaryuser" ToRole="ordinaryuser" />
+        </EntityType>
+        <EntityType Name="establish_questionbank_between_organizationuser_and_questionbank">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="QuestionBankName" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionBankName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TimeOfEstablish" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="organizationuser" Relationship="Model.OrganizationUser12" FromRole="establish_questionbank_between_organizationuser_and_questionbank" ToRole="organizationuser" />
+          <NavigationProperty Name="questionbank" Relationship="Model.QuestionBank12" FromRole="establish_questionbank_between_organizationuser_and_questionbank" ToRole="questionbank" />
+        </EntityType>
+        <EntityType Name="generate_testpaper_between_organizationuser_and_testpaper">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="TestPaperID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="TestPaperID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="organizationuser" Relationship="Model.OrganizationUser13" FromRole="generate_testpaper_between_organizationuser_and_testpaper" ToRole="organizationuser" />
+          <NavigationProperty Name="testpaper" Relationship="Model.TestPaper13" FromRole="generate_testpaper_between_organizationuser_and_testpaper" ToRole="testpaper" />
+        </EntityType>
+        <EntityType Name="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+          <Key>
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ordinaryuser" Relationship="Model.OrdinaryUser15" FromRole="notice_of_testgame_between_organizationuser_and_ordinaryuser" ToRole="ordinaryuser" />
+          <NavigationProperty Name="organizationuser" Relationship="Model.OrganizationUser15" FromRole="notice_of_testgame_between_organizationuser_and_ordinaryuser" ToRole="organizationuser" />
+        </EntityType>
+        <EntityType Name="organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationName" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="organizationuser" Relationship="Model.having_organizationuser_" FromRole="organization" ToRole="organizationuser" />
+          <NavigationProperty Name="ordinaryuser" Relationship="Model.having_student_between_organization_and_ordinaryuser" FromRole="organization" ToRole="ordinaryuser" />
+        </EntityType>
+        <EntityType Name="organizationuser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCard" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Pwd" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RegisterTime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="establish_questionbank_between_organizationuser_and_questionbank" Relationship="Model.OrganizationUser12" FromRole="organizationuser" ToRole="establish_questionbank_between_organizationuser_and_questionbank" />
+          <NavigationProperty Name="generate_testpaper_between_organizationuser_and_testpaper" Relationship="Model.OrganizationUser13" FromRole="organizationuser" ToRole="generate_testpaper_between_organizationuser_and_testpaper" />
+          <NavigationProperty Name="notice_of_testgame_between_organizationuser_and_ordinaryuser" Relationship="Model.OrganizationUser15" FromRole="organizationuser" ToRole="notice_of_testgame_between_organizationuser_and_ordinaryuser" />
+          <NavigationProperty Name="systemnotice_" Relationship="Model.OrganizationUser16" FromRole="organizationuser" ToRole="systemnotice_" />
+          <NavigationProperty Name="organization" Relationship="Model.having_organizationuser_" FromRole="organizationuser" ToRole="organization" />
+        </EntityType>
+        <EntityType Name="systemnotice_">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+            <PropertyRef Name="OrganizationUserID" />
+            <PropertyRef Name="OrdinaryUserID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationUserID" Type="Int32" Nullable="false" />
+          <Property Name="OrdinaryUserID" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfGeneration" Type="DateTime" Nullable="false" />
+          <Property Name="ContentOfNotice" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="administrator" Relationship="Model.Administrator16" FromRole="systemnotice_" ToRole="administrator" />
+          <NavigationProperty Name="ordinaryuser" Relationship="Model.OrdinaryUser16" FromRole="systemnotice_" ToRole="ordinaryuser" />
+          <NavigationProperty Name="organizationuser" Relationship="Model.OrganizationUser16" FromRole="systemnotice_" ToRole="organizationuser" />
+        </EntityType>
+        <Association Name="Administrator16">
+          <End Type="Model.administrator" Role="administrator" Multiplicity="1" />
+          <End Type="Model.systemnotice_" Role="systemnotice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="systemnotice_">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Administrator17">
+          <End Type="Model.administrator" Role="administrator" Multiplicity="1" />
+          <End Type="Model.comment_between_administrator_and_ordinaryuser" Role="comment_between_administrator_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="comment_between_administrator_and_ordinaryuser">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser1">
+          <End Type="Model.ordinaryuser" Role="ordinaryuser" Multiplicity="1" />
+          <End Type="Model.arrange_testgame_between_ordinaryuser_and_testpaper" Role="arrange_testgame_between_ordinaryuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="arrange_testgame_between_ordinaryuser_and_testpaper">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper4">
+          <End Type="Model.testpaper" Role="testpaper" Multiplicity="1" />
+          <End Type="Model.arrange_testgame_between_ordinaryuser_and_testpaper" Role="arrange_testgame_between_ordinaryuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="arrange_testgame_between_ordinaryuser_and_testpaper">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser14">
+          <End Type="Model.ordinaryuser" Role="ordinaryuser" Multiplicity="1" />
+          <End Type="Model.collect_question_between_ordinaryuser_and_question" Role="collect_question_between_ordinaryuser_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="collect_question_between_ordinaryuser_and_question">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Question14">
+          <End Type="Model.question" Role="question" Multiplicity="1" />
+          <End Type="Model.collect_question_between_ordinaryuser_and_question" Role="collect_question_between_ordinaryuser_and_question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="question">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="collect_question_between_ordinaryuser_and_question">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser17">
+          <End Type="Model.ordinaryuser" Role="ordinaryuser" Multiplicity="1" />
+          <End Type="Model.comment_between_administrator_and_ordinaryuser" Role="comment_between_administrator_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="comment_between_administrator_and_ordinaryuser">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser12">
+          <End Type="Model.organizationuser" Role="organizationuser" Multiplicity="1" />
+          <End Type="Model.establish_questionbank_between_organizationuser_and_questionbank" Role="establish_questionbank_between_organizationuser_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_organizationuser_and_questionbank">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionBank12">
+          <End Type="Model.questionbank" Role="questionbank" Multiplicity="1" />
+          <End Type="Model.establish_questionbank_between_organizationuser_and_questionbank" Role="establish_questionbank_between_organizationuser_and_questionbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionbank">
+              <PropertyRef Name="BankName" />
+            </Principal>
+            <Dependent Role="establish_questionbank_between_organizationuser_and_questionbank">
+              <PropertyRef Name="QuestionBankName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser13">
+          <End Type="Model.organizationuser" Role="organizationuser" Multiplicity="1" />
+          <End Type="Model.generate_testpaper_between_organizationuser_and_testpaper" Role="generate_testpaper_between_organizationuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_organizationuser_and_testpaper">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestPaper13">
+          <End Type="Model.testpaper" Role="testpaper" Multiplicity="1" />
+          <End Type="Model.generate_testpaper_between_organizationuser_and_testpaper" Role="generate_testpaper_between_organizationuser_and_testpaper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testpaper">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="generate_testpaper_between_organizationuser_and_testpaper">
+              <PropertyRef Name="TestPaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser15">
+          <End Type="Model.ordinaryuser" Role="ordinaryuser" Multiplicity="1" />
+          <End Type="Model.notice_of_testgame_between_organizationuser_and_ordinaryuser" Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser15">
+          <End Type="Model.organizationuser" Role="organizationuser" Multiplicity="1" />
+          <End Type="Model.notice_of_testgame_between_organizationuser_and_ordinaryuser" Role="notice_of_testgame_between_organizationuser_and_ordinaryuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrdinaryUser16">
+          <End Type="Model.ordinaryuser" Role="ordinaryuser" Multiplicity="1" />
+          <End Type="Model.systemnotice_" Role="systemnotice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ordinaryuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="systemnotice_">
+              <PropertyRef Name="OrdinaryUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrganizationUser16">
+          <End Type="Model.organizationuser" Role="organizationuser" Multiplicity="1" />
+          <End Type="Model.systemnotice_" Role="systemnotice_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="organizationuser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="systemnotice_">
+              <PropertyRef Name="OrganizationUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="having_organizationuser_">
+          <End Type="Model.organization" Role="organization" Multiplicity="*" />
+          <End Type="Model.organizationuser" Role="organizationuser" Multiplicity="*" />
+        </Association>
+        <Association Name="having_student_between_organization_and_ordinaryuser">
+          <End Type="Model.ordinaryuser" Role="ordinaryuser" Multiplicity="*" />
+          <End Type="Model.organization" Role="organization" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="administrator">
+            <EntityTypeMapping TypeName="Model.administrator">
+              <MappingFragment StoreEntitySet="administrator">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordinaryuser">
+            <EntityTypeMapping TypeName="Model.ordinaryuser">
+              <MappingFragment StoreEntitySet="ordinaryuser">
+                <ScalarProperty Name="isLocking" ColumnName="isLocking" />
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="establish_questionbank_between_administrator_and_questionbank">
+            <EntityTypeMapping TypeName="Model.establish_questionbank_between_administrator_and_questionbank">
+              <MappingFragment StoreEntitySet="establish_questionbank_between_administrator_and_questionbank">
+                <ScalarProperty Name="TimeOfEstablish" ColumnName="TimeOfEstablish" />
+                <ScalarProperty Name="NameOfQuestionBank" ColumnName="NameOfQuestionBank" />
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="generate_testpaper_between_administrator_and_testpaper">
+            <EntityTypeMapping TypeName="Model.generate_testpaper_between_administrator_and_testpaper">
+              <MappingFragment StoreEntitySet="generate_testpaper_between_administrator_and_testpaper">
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="question">
+            <EntityTypeMapping TypeName="Model.question">
+              <MappingFragment StoreEntitySet="question">
+                <ScalarProperty Name="StandardAnswer" ColumnName="StandardAnswer" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Essay" ColumnName="Essay" />
+                <ScalarProperty Name="Reading" ColumnName="Reading" />
+                <ScalarProperty Name="QuestionAndAnswer" ColumnName="QuestionAndAnswer" />
+                <ScalarProperty Name="MultipleChoice" ColumnName="MultipleChoice" />
+                <ScalarProperty Name="SingleChoice" ColumnName="SingleChoice" />
+                <ScalarProperty Name="Completion" ColumnName="Completion" />
+                <ScalarProperty Name="TrueOrFalse" ColumnName="TrueOrFalse" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questionbank">
+            <EntityTypeMapping TypeName="Model.questionbank">
+              <MappingFragment StoreEntitySet="questionbank">
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="testpaper">
+            <EntityTypeMapping TypeName="Model.testpaper">
+              <MappingFragment StoreEntitySet="testpaper">
+                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
+                <ScalarProperty Name="CanUseAgain" ColumnName="CanUseAgain" />
+                <ScalarProperty Name="TimeIntervalOfSavingAnswer" ColumnName="TimeIntervalOfSavingAnswer" />
+                <ScalarProperty Name="TestPaperScore" ColumnName="TestPaperScore" />
+                <ScalarProperty Name="TestPaperName" ColumnName="TestPaperName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typeofwork">
+            <EntityTypeMapping TypeName="Model.typeofwork">
+              <MappingFragment StoreEntitySet="typeofwork">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="add_typeofwork_between_administrator_and_typeofwork" TypeName="Model.add_typeofwork_between_administrator_and_typeofwork" StoreEntitySet="add_typeofwork_between_administrator_and_typeofwork">
+            <EndProperty Name="typeofwork">
+              <ScalarProperty Name="Name" ColumnName="NameOfTypeOfWork" />
+            </EndProperty>
+            <EndProperty Name="administrator">
+              <ScalarProperty Name="ID" ColumnName="AdministratorID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="binding_typeofwork_between_questionbank_and_typeofwork" TypeName="Model.binding_typeofwork_between_questionbank_and_typeofwork" StoreEntitySet="binding_typeofwork_between_questionbank_and_typeofwork">
+            <EndProperty Name="typeofwork">
+              <ScalarProperty Name="Name" ColumnName="NameOfTypeOfWork" />
+            </EndProperty>
+            <EndProperty Name="questionbank">
+              <ScalarProperty Name="BankName" ColumnName="NameOfQuestionBank" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="binding_typeofwork_between_testpaper_and_typeofwork" TypeName="Model.binding_typeofwork_between_testpaper_and_typeofwork" StoreEntitySet="binding_typeofwork_between_testpaper_and_typeofwork">
+            <EndProperty Name="typeofwork">
+              <ScalarProperty Name="Name" ColumnName="NameOfTypeOfWork" />
+            </EndProperty>
+            <EndProperty Name="testpaper">
+              <ScalarProperty Name="ID" ColumnName="TestPaperID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="include_question_between_questionbank_and_question" TypeName="Model.include_question_between_questionbank_and_question" StoreEntitySet="include_question_between_questionbank_and_question">
+            <EndProperty Name="questionbank">
+              <ScalarProperty Name="BankName" ColumnName="NameOfQuestionBank" />
+            </EndProperty>
+            <EndProperty Name="question">
+              <ScalarProperty Name="ID" ColumnName="QuestionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="include_question_between_testpaper_and_question" TypeName="Model.include_question_between_testpaper_and_question" StoreEntitySet="include_question_between_testpaper_and_question">
+            <EndProperty Name="testpaper">
+              <ScalarProperty Name="ID" ColumnName="TestPaperID" />
+            </EndProperty>
+            <EndProperty Name="question">
+              <ScalarProperty Name="ID" ColumnName="QuestionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="arrange_testgame_between_ordinaryuser_and_testpaper">
+            <EntityTypeMapping TypeName="Model.arrange_testgame_between_ordinaryuser_and_testpaper">
+              <MappingFragment StoreEntitySet="arrange_testgame_between_ordinaryuser_and_testpaper">
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Marker" ColumnName="Marker" />
+                <ScalarProperty Name="PassMark" ColumnName="PassMark" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="TypeOfWork" ColumnName="TypeOfWork" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collect_question_between_ordinaryuser_and_question">
+            <EntityTypeMapping TypeName="Model.collect_question_between_ordinaryuser_and_question">
+              <MappingFragment StoreEntitySet="collect_question_between_ordinaryuser_and_question">
+                <ScalarProperty Name="TimeOfCollecting" ColumnName="TimeOfCollecting" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comment_between_administrator_and_ordinaryuser">
+            <EntityTypeMapping TypeName="Model.comment_between_administrator_and_ordinaryuser">
+              <MappingFragment StoreEntitySet="comment_between_administrator_and_ordinaryuser">
+                <ScalarProperty Name="ContentOfComment" ColumnName="ContentOfComment" />
+                <ScalarProperty Name="TimeOfComment" ColumnName="TimeOfComment" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="establish_questionbank_between_organizationuser_and_questionbank">
+            <EntityTypeMapping TypeName="Model.establish_questionbank_between_organizationuser_and_questionbank">
+              <MappingFragment StoreEntitySet="establish_questionbank_between_organizationuser_and_questionbank">
+                <ScalarProperty Name="TimeOfEstablish" ColumnName="TimeOfEstablish" />
+                <ScalarProperty Name="QuestionBankName" ColumnName="QuestionBankName" />
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="generate_testpaper_between_organizationuser_and_testpaper">
+            <EntityTypeMapping TypeName="Model.generate_testpaper_between_organizationuser_and_testpaper">
+              <MappingFragment StoreEntitySet="generate_testpaper_between_organizationuser_and_testpaper">
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+                <ScalarProperty Name="TestPaperID" ColumnName="TestPaperID" />
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+            <EntityTypeMapping TypeName="Model.notice_of_testgame_between_organizationuser_and_ordinaryuser">
+              <MappingFragment StoreEntitySet="notice_of_testgame_between_organizationuser_and_ordinaryuser">
+                <ScalarProperty Name="ContentOfNotice" ColumnName="ContentOfNotice" />
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organization">
+            <EntityTypeMapping TypeName="Model.organization">
+              <MappingFragment StoreEntitySet="organization">
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organizationuser">
+            <EntityTypeMapping TypeName="Model.organizationuser">
+              <MappingFragment StoreEntitySet="organizationuser">
+                <ScalarProperty Name="RegisterTime" ColumnName="RegisterTime" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="IDCard" ColumnName="IDCard" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="systemnotice_">
+            <EntityTypeMapping TypeName="Model.systemnotice_">
+              <MappingFragment StoreEntitySet="systemnotice_">
+                <ScalarProperty Name="ContentOfNotice" ColumnName="ContentOfNotice" />
+                <ScalarProperty Name="TimeOfGeneration" ColumnName="TimeOfGeneration" />
+                <ScalarProperty Name="OrdinaryUserID" ColumnName="OrdinaryUserID" />
+                <ScalarProperty Name="OrganizationUserID" ColumnName="OrganizationUserID" />
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="having_organizationuser_" TypeName="Model.having_organizationuser_" StoreEntitySet="having_organizationuser_">
+            <EndProperty Name="organizationuser">
+              <ScalarProperty Name="ID" ColumnName="OrganizationUserID" />
+            </EndProperty>
+            <EndProperty Name="organization">
+              <ScalarProperty Name="ID" ColumnName="OrganizationID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="having_student_between_organization_and_ordinaryuser" TypeName="Model.having_student_between_organization_and_ordinaryuser" StoreEntitySet="having_student_between_organization_and_ordinaryuser">
+            <EndProperty Name="organization">
+              <ScalarProperty Name="ID" ColumnName="OrganizationID" />
+            </EndProperty>
+            <EndProperty Name="ordinaryuser">
+              <ScalarProperty Name="ID" ColumnName="OrdinaryUserID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
