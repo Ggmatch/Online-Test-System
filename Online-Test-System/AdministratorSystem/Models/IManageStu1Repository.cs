@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AdministratorSystem.Models;
 
 namespace AdministratorSystem.Models
 {
-    public interface IManageStuRepository
+    public interface IManageStu1Repository
     {
-        // 验证学员的身份证信息
-        bool ValidateStu(string idcard);
         // 新建一个学员
         ordinaryuser AddStu(ordinaryuser user);
         // 批量新建一群学员
@@ -24,8 +21,6 @@ namespace AdministratorSystem.Models
         bool DeleteStu(int id);
         // 更新学员
         bool UpdateStu(int id, ordinaryuser user);
-        // 学员补考审核
-        bool CanTestAgain(int id);
         // 锁定学员账号
         bool Lock(int id);
         // 解锁

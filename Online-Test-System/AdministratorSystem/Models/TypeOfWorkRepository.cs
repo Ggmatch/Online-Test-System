@@ -7,10 +7,10 @@ namespace AdministratorSystem.Models
 {
     public class TypeOfWorkRepository : ITypeOfWorkRepository
     {
-        DBEntities db;
+        DBEntities2 db;
         public TypeOfWorkRepository()
         {
-            db = new DBEntities();
+            db = new DBEntities2();
         }
 
         public typeofwork Add(typeofwork tw)

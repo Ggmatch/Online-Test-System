@@ -12,9 +12,11 @@ namespace AdministratorSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class having_organizationuser_between_organ_and_organuser
+    public partial class letter_between_administrator_organizationuser
     {
-        public int OrganizationID { get; set; }
-        public int OrganizationUserID { get; set; }
+        public long ID { get; set; }
+        public long organizationUserID { get; set; }
+        public System.DateTime TimeOfGeneration { get; set; }
+        public string Content { get; set; }
     }
 }

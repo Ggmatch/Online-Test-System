@@ -12,9 +12,11 @@ namespace AdministratorSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class having_student_between_organization_and_ordinaryuser
+    public partial class board1
     {
-        public int OrganizationID { get; set; }
-        public int OrdinaryUserID { get; set; }
+        public long ID { get; set; }
+        public string Title { get; set; }
+        public string Url { get; set; }
+        public System.DateTime TimeOfGeneration { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdministratorSystem.Models
 {
-    public interface IManageTestPaperRepository
+    public interface IManageTestPaper1Repository
     {
         // 增加
         testpaper Add(testpaper tp);
@@ -17,7 +17,7 @@ namespace AdministratorSystem.Models
         // 查找
         bool TryGet(int id, out testpaper tp);
         testpaper Get(int id);
-        IEnumerable<testpaper> Get();
+        IEnumerable<testpaper> GetAll(int organizationUserID);
         // 绑定工种
         bool Binding(int id, int[] types);
     }

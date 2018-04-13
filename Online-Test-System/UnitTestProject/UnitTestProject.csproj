@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="ManageStuModelTest.cs" />
     <Compile Include="ManageTypeOfWorkTest.cs" />
+    <Compile Include="QuestionBankTest.cs" />
+    <Compile Include="TestPaperTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

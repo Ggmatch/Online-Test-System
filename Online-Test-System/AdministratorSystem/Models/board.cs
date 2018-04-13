@@ -12,12 +12,11 @@ namespace AdministratorSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class systemnotice_between_administrator_organizationuser_ordinaryuser
+    public partial class board
     {
-        public long AdministratorID { get; set; }
-        public long OrganizationUserID { get; set; }
-        public long OrdinaryUserID { get; set; }
+        public long ID { get; set; }
+        public string Title { get; set; }
+        public string Url { get; set; }
         public System.DateTime TimeOfGeneration { get; set; }
-        public string ContentOfNotice { get; set; }
     }
 }
