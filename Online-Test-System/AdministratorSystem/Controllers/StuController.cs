@@ -9,11 +9,11 @@ using AdministratorSystem.Models;
 
 namespace AdministratorSystem.Controllers
 {
-    public class ManagementOfStuController : ApiController
+    public class StuController : ApiController
     {
         IManageStuRepository repository;
 
-        public ManagementOfStuController(IManageStuRepository repository)
+        public StuController(IManageStuRepository repository)
         {
             this.repository = repository;
         }
@@ -28,10 +28,7 @@ namespace AdministratorSystem.Controllers
         // GET api/<controller>/5
         public ordinaryuser Get(int id)
         {
-            ordinaryuser user;
-            if (!repository.TryGet(id, out user))
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
-            return user;
+            return repository.Get(id);
         }
 
         // 锁定学员
@@ -75,11 +72,9 @@ namespace AdministratorSystem.Controllers
         #region POST
         // 添加学员
         [HttpPost]
-        public HttpResponseMessage AddStu([FromBody]ordinaryuser user)
+        public ordinaryuser AddStu([FromBody]ordinaryuser user)
         {
-            user = repository.AddStu(user);
-            var response = Request.CreateResponse<ordinaryuser>(HttpStatusCode.Created, user);
-            return response;
+            return repository.AddStu(user);
         }
 
         // 批量添加学员
@@ -107,13 +102,9 @@ namespace AdministratorSystem.Controllers
         // DELETE api/<controller>/5
         // 删除学员
         [HttpDelete]
-        public ordinaryuser DeleteStu(int id)
+        public bool DeleteStu(int id)
         {
-            ordinaryuser user;
-            if (!repository.TryGet(id, out user))
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
-            repository.DeleteStu(user);
-            return user;
+            return repository.DeleteStu(id);
         }
         #endregion
 

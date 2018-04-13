@@ -12,10 +12,11 @@ namespace AdministratorSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class establish_questionbank_between_administrator_and_questionbank
+    public partial class board2
     {
-        public int AdministratorID { get; set; }
-        public long IDOfQuestionBank { get; set; }
-        public System.DateTime TimeOfEstablish { get; set; }
+        public long ID { get; set; }
+        public string Title { get; set; }
+        public string Url { get; set; }
+        public System.DateTime TimeOfGeneration { get; set; }
     }
 }

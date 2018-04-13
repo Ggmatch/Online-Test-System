@@ -21,7 +21,7 @@ namespace AdministratorSystem.Models
         public byte CanUseAgain { get; set; }
         public System.DateTime OverTime { get; set; }
         public int PassMark { get; set; }
-        public sbyte Amount1 { get; set; }
+        public byte Amount1 { get; set; }
         public byte Amount2 { get; set; }
         public byte Amount3 { get; set; }
         public byte Amount4 { get; set; }

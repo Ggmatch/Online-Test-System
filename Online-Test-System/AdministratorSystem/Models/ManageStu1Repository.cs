@@ -5,35 +5,30 @@ using System.Web;
 
 namespace AdministratorSystem.Models
 {
-    public class ManageStuRepository : IManageStuRepository
+    public class ManageStu1Repository : IManageStu1Repository
     {
         DBEntities2 db;
 
-        public ManageStuRepository()
+        public ManageStu1Repository()
         {
             db = new DBEntities2();
         }
 
         public ordinaryuser AddStu(ordinaryuser user)
         {
-            user=db.ordinaryuser.Add(user);
+            user = db.ordinaryuser.Add(user);
             db.SaveChanges();
             return user;
         }
 
         public ordinaryuser[] AddStu(ordinaryuser[] users)
         {
-            for(int i=0;i<users.Length;i++)
+            for (int i = 0; i < users.Length; i++)
             {
                 users[i] = db.ordinaryuser.Add(users[i]);
             }
             db.SaveChanges();
             return users;
-        }
-
-        public bool CanTestAgain(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public bool DeleteStu(int id)
@@ -132,25 +127,6 @@ namespace AdministratorSystem.Models
             {
                 return false;
             }
-        }
-
-        public bool ValidateStu(string idcard)
-        {
-            int[] weight = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 };    //十七位数字本体码权重
-            char[] validate = { '1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2' };    //mod11,对应校验码字符值 
-            int sum = 0;
-            int mode = 0;
-            for (int i = 0; i < idcard.Length-1; i++)
-            {
-                sum = sum + (int)(idcard[i]-'0') * weight[i];
-            }
-            mode = sum % 11;
-            if (validate[mode] == idcard[idcard.Length - 1])
-            {
-                return true;
-            }
-            else
-                return false;
         }
     }
 }

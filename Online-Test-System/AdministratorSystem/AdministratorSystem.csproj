@@ -113,16 +113,6 @@
       <LastGenOutput>Model2.cs</LastGenOutput>
     </Content>
     <Content Include="Views\help.html" />
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -150,9 +140,18 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
-    <Compile Include="Controllers\ManagementOfStuController.cs" />
-    <Compile Include="Controllers\ManagementOfTestPaperController.cs" />
-    <Compile Include="Controllers\ManagementOfTypeOfWorkController.cs" />
+    <Compile Include="Controllers\ArrangeTestGameController.cs" />
+    <Compile Include="Controllers\BoardController.cs" />
+    <Compile Include="Controllers\LetterController.cs" />
+    <Compile Include="Controllers\OrganizationUserController.cs" />
+    <Compile Include="Controllers\QuestionBank1Controller.cs" />
+    <Compile Include="Controllers\QuestionBankController.cs" />
+    <Compile Include="Controllers\Stu1Controller.cs" />
+    <Compile Include="Controllers\StuController.cs" />
+    <Compile Include="Controllers\StuGradeController.cs" />
+    <Compile Include="Controllers\TestPaper1Controller.cs" />
+    <Compile Include="Controllers\TestPaperController.cs" />
+    <Compile Include="Controllers\TypeOfWorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +163,7 @@
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdministratorRepository.cs" />
+    <Compile Include="Models\ArrangeTestGameRepository.cs" />
     <Compile Include="Models\arrange_testgame_between_ordinaryuser_and_testpaper.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -173,14 +173,21 @@
     <Compile Include="Models\binding_typeofwork_between_testpaper_and_typeofwork.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\board.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\board1.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\board2.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BoardRepository.cs" />
     <Compile Include="Models\collect_question_between_ordinaryuser_and_completion.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\collect_question_between_ordinaryuser_and_composition.cs">
       <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\collect_question_between_ordinaryuser_and_question.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\collect_question_between_ordinaryuser_and_questionandanswer.cs">
       <DependentUpon>Model2.tt</DependentUpon>
@@ -203,9 +210,6 @@
     <Compile Include="Models\composition.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\establish_questionbank_between_administrator_and_questionbank.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\establish_questionbank_between_organizationuser_and_questionbank.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -215,13 +219,17 @@
     <Compile Include="Models\generate_testpaper_between_organizationuser_and_testpaper.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\having_organizationuser_between_organ_and_organuser.cs">
+    <Compile Include="Models\GradeStatistic.cs" />
+    <Compile Include="Models\having_student_between_organizationuser_and_ordinaryuser.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\having_student_between_organization_and_ordinaryuser.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\IBoardRepository.cs" />
+    <Compile Include="Models\IManageStu1Repository.cs" />
+    <Compile Include="Models\IManageTestPaper1Repository.cs" />
+    <Compile Include="Models\IOrganizationUserRepository.cs" />
     <Compile Include="Models\IAdministratorRepository.cs" />
+    <Compile Include="Models\IArrangeTestGameRepository.cs" />
+    <Compile Include="Models\ILetterRepository.cs" />
     <Compile Include="Models\IManageStuRepository.cs" />
     <Compile Include="Models\IManageTestPaperRepository.cs" />
     <Compile Include="Models\include_question_between_bank_and_completion.cs">
@@ -260,24 +268,21 @@
     <Compile Include="Models\include_question_between_testpaper_and_trueorfalse.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IQuestionBank1Repository.cs" />
+    <Compile Include="Models\IQuestionBankRepository.cs" />
+    <Compile Include="Models\IStuGradeRepository.cs" />
     <Compile Include="Models\ITypeOfWorkRepository.cs" />
+    <Compile Include="Models\LetterRepository.cs" />
+    <Compile Include="Models\letter_between_administrator_organizationuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\letter_between_organizationuser_ordinaryuser.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManageStu1Repository.cs" />
     <Compile Include="Models\ManageStuRepository.cs" />
+    <Compile Include="Models\ManageTestPaper1Repository.cs" />
     <Compile Include="Models\ManageTestPaperRepository.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Model2.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -299,33 +304,25 @@
     <Compile Include="Models\ordinaryuser.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\organization.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\organizationuser.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\question.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\OrganizationUserRepository.cs" />
     <Compile Include="Models\questionandanswer.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\questionbank.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QuestionBank1Repository.cs" />
+    <Compile Include="Models\QuestionBankRepository.cs" />
     <Compile Include="Models\reading.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\selection.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\systemnotice_.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\systemnotice_between_administrator_organizationuser_ordinaryuser.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\StuGradeRepository.cs" />
     <Compile Include="Models\testpaper.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -340,13 +337,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />

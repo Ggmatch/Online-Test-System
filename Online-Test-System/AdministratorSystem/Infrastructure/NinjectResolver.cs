@@ -51,6 +51,16 @@ namespace AdministratorSystem.Infrastructure
             kernel.Bind<IAdministratorRepository>().To<AdministratorRepository>().InSingletonScope();
             kernel.Bind<IManageStuRepository>().To<ManageStuRepository>().InSingletonScope();
             kernel.Bind<ITypeOfWorkRepository>().To<TypeOfWorkRepository>().InSingletonScope();
+            kernel.Bind<IManageTestPaperRepository>().To<ManageTestPaperRepository>().InSingletonScope();
+            kernel.Bind<IManageTestPaper1Repository>().To<ManageTestPaper1Repository>().InSingletonScope();
+            kernel.Bind<IQuestionBankRepository>().To<QuestionBankRepository>().InSingletonScope();
+            kernel.Bind<IQuestionBank1Repository>().To<QuestionBank1Repository>().InSingletonScope();
+            kernel.Bind<IStuGradeRepository>().To<StuGradeRepository>().InSingletonScope();
+            kernel.Bind<IArrangeTestGameRepository>().To<ArrangeTestGameRepository>().InSingletonScope();
+            kernel.Bind<ILetterRepository>().To<LetterRepository>().InSingletonScope();
+            kernel.Bind<IOrganizationUserRepository>().To<OrganizationUserRepository>().InSingletonScope();
+            kernel.Bind<IManageStu1Repository>().To<ManageStu1Repository>().InSingletonScope();
+            kernel.Bind<IBoardRepository>().To<BoardRepository>().InSingletonScope();
             return kernel;
         }
     }

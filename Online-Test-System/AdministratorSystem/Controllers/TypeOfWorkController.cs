@@ -8,11 +8,11 @@ using AdministratorSystem.Models;
 
 namespace AdministratorSystem.Controllers
 {
-    public class ManagementOfTypeOfWorkController : ApiController
+    public class TypeOfWorkController : ApiController
     {
         ITypeOfWorkRepository repository;
 
-        public ManagementOfTypeOfWorkController(ITypeOfWorkRepository repository)
+        public TypeOfWorkController(ITypeOfWorkRepository repository)
         {
             this.repository = repository;
         }
@@ -48,5 +48,10 @@ namespace AdministratorSystem.Controllers
             return repository.Delete(name);
         }
         #endregion
+
+        public string Options()
+        {
+            return null; // HTTP 200 response with empty body
+        }
     }
 }

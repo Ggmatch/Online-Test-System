@@ -7,11 +7,11 @@ namespace AdministratorSystem.Models
 {
     public class AdministratorRepository : IAdministratorRepository
     {
-        DBEntities db;
+        DBEntities2 db;
 
         public AdministratorRepository()
         {
-            db = new DBEntities();
+            db = new DBEntities2();
         }
 
         public bool ValidateLogOn(administrator admin)
