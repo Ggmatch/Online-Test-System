@@ -15,7 +15,7 @@ namespace AdministratorSystem.Models
     public partial class establish_questionbank_between_organizationuser_and_questionbank
     {
         public int OrganizationUserID { get; set; }
-        public long QuestionBankID { get; set; }
+        public int QuestionBankID { get; set; }
         public System.DateTime TimeOfEstablish { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class add_typeofwork_between_administrator_and_typeofwork
     {
-        public long AdministratorID { get; set; }
-        public long IDOfTypeOfWork { get; set; }
+        public int AdministratorID { get; set; }
+        public int IDOfTypeOfWork { get; set; }
     }
 }

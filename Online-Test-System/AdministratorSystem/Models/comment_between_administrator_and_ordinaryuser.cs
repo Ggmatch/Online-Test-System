@@ -14,9 +14,9 @@ namespace AdministratorSystem.Models
     
     public partial class comment_between_administrator_and_ordinaryuser
     {
-        public int AdministratorID { get; set; }
         public int OrdinaryUserID { get; set; }
         public System.DateTime TimeOfComment { get; set; }
         public string ContentOfComment { get; set; }
+        public int ID { get; set; }
     }
 }

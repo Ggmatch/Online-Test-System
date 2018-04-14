@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class include_question_between_bank_and_composition
     {
-        public long BankID { get; set; }
-        public long QuestionID { get; set; }
+        public int BankID { get; set; }
+        public int QuestionID { get; set; }
     }
 }

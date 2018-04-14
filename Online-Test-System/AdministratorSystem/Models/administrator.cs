@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class administrator
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string Pwd { get; set; }
     }
 }

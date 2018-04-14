@@ -13,10 +13,10 @@ namespace AdministratorSystem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBEntities : DbContext
+    public partial class DBEntities2 : DbContext
     {
-        public DBEntities()
-            : base("name=DBEntities")
+        public DBEntities2()
+            : base("name=DBEntities2")
         {
         }
     
@@ -25,22 +25,49 @@ namespace AdministratorSystem.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<add_typeofwork_between_administrator_and_typeofwork> add_typeofwork_between_administrator_and_typeofwork { get; set; }
         public DbSet<administrator> administrator { get; set; }
-        public DbSet<ordinaryuser> ordinaryuser { get; set; }
-        public DbSet<establish_questionbank_between_administrator_and_questionbank> establish_questionbank_between_administrator_and_questionbank { get; set; }
-        public DbSet<generate_testpaper_between_administrator_and_testpaper> generate_testpaper_between_administrator_and_testpaper { get; set; }
-        public DbSet<question> question { get; set; }
-        public DbSet<questionbank> questionbank { get; set; }
-        public DbSet<testpaper> testpaper { get; set; }
-        public DbSet<typeofwork> typeofwork { get; set; }
         public DbSet<arrange_testgame_between_ordinaryuser_and_testpaper> arrange_testgame_between_ordinaryuser_and_testpaper { get; set; }
-        public DbSet<collect_question_between_ordinaryuser_and_question> collect_question_between_ordinaryuser_and_question { get; set; }
+        public DbSet<binding_typeofwork_between_questionbank_and_typeofwork> binding_typeofwork_between_questionbank_and_typeofwork { get; set; }
+        public DbSet<binding_typeofwork_between_testpaper_and_typeofwork> binding_typeofwork_between_testpaper_and_typeofwork { get; set; }
+        public DbSet<board> board { get; set; }
+        public DbSet<board1> board1 { get; set; }
+        public DbSet<board2> board2 { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_completion> collect_question_between_ordinaryuser_and_completion { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_composition> collect_question_between_ordinaryuser_and_composition { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_questionandanswer> collect_question_between_ordinaryuser_and_questionandanswer { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_reading> collect_question_between_ordinaryuser_and_reading { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_selection> collect_question_between_ordinaryuser_and_selection { get; set; }
+        public DbSet<collect_question_between_ordinaryuser_and_trueorfalse> collect_question_between_ordinaryuser_and_trueorfalse { get; set; }
         public DbSet<comment_between_administrator_and_ordinaryuser> comment_between_administrator_and_ordinaryuser { get; set; }
+        public DbSet<completion> completion { get; set; }
+        public DbSet<composition> composition { get; set; }
         public DbSet<establish_questionbank_between_organizationuser_and_questionbank> establish_questionbank_between_organizationuser_and_questionbank { get; set; }
+        public DbSet<generate_testpaper_between_administrator_and_testpaper> generate_testpaper_between_administrator_and_testpaper { get; set; }
         public DbSet<generate_testpaper_between_organizationuser_and_testpaper> generate_testpaper_between_organizationuser_and_testpaper { get; set; }
-        public DbSet<notice_of_testgame_between_organizationuser_and_ordinaryuser> notice_of_testgame_between_organizationuser_and_ordinaryuser { get; set; }
-        public DbSet<organization> organization { get; set; }
+        public DbSet<having_student_between_organizationuser_and_ordinaryuser> having_student_between_organizationuser_and_ordinaryuser { get; set; }
+        public DbSet<include_question_between_bank_and_completion> include_question_between_bank_and_completion { get; set; }
+        public DbSet<include_question_between_bank_and_composition> include_question_between_bank_and_composition { get; set; }
+        public DbSet<include_question_between_bank_and_questionandanswer> include_question_between_bank_and_questionandanswer { get; set; }
+        public DbSet<include_question_between_bank_and_reading> include_question_between_bank_and_reading { get; set; }
+        public DbSet<include_question_between_bank_and_selection> include_question_between_bank_and_selection { get; set; }
+        public DbSet<include_question_between_bank_and_trueorfalse> include_question_between_bank_and_trueorfalse { get; set; }
+        public DbSet<include_question_between_testpaper_and_completion> include_question_between_testpaper_and_completion { get; set; }
+        public DbSet<include_question_between_testpaper_and_composition> include_question_between_testpaper_and_composition { get; set; }
+        public DbSet<include_question_between_testpaper_and_questionandanswer> include_question_between_testpaper_and_questionandanswer { get; set; }
+        public DbSet<include_question_between_testpaper_and_reading> include_question_between_testpaper_and_reading { get; set; }
+        public DbSet<include_question_between_testpaper_and_selection> include_question_between_testpaper_and_selection { get; set; }
+        public DbSet<include_question_between_testpaper_and_trueorfalse> include_question_between_testpaper_and_trueorfalse { get; set; }
+        public DbSet<letter_between_administrator_organizationuser> letter_between_administrator_organizationuser { get; set; }
+        public DbSet<letter_between_organizationuser_ordinaryuser> letter_between_organizationuser_ordinaryuser { get; set; }
+        public DbSet<ordinaryuser> ordinaryuser { get; set; }
         public DbSet<organizationuser> organizationuser { get; set; }
-        public DbSet<systemnotice_> systemnotice_ { get; set; }
+        public DbSet<questionandanswer> questionandanswer { get; set; }
+        public DbSet<questionbank> questionbank { get; set; }
+        public DbSet<reading> reading { get; set; }
+        public DbSet<selection> selection { get; set; }
+        public DbSet<testpaper> testpaper { get; set; }
+        public DbSet<trueorfalse> trueorfalse { get; set; }
+        public DbSet<typeofwork> typeofwork { get; set; }
     }
 }

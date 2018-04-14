@@ -4,50 +4,51 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="36a880a2542c42e6988fdae80f4fdf93" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.administrator" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ordinaryuser" Width="1.5" PointX="0.75" PointY="2.25" />
-        <EntityTypeShape EntityType="Model.establish_questionbank_between_administrator_and_questionbank" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.generate_testpaper_between_administrator_and_testpaper" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.question" Width="1.5" PointX="1.5" PointY="7.25" />
-        <EntityTypeShape EntityType="Model.questionbank" Width="1.5" PointX="0.75" PointY="12.25" />
-        <EntityTypeShape EntityType="Model.testpaper" Width="1.5" PointX="3.75" PointY="7.625" />
-        <EntityTypeShape EntityType="Model.typeofwork" Width="1.5" PointX="4" PointY="3.875" />
-        <AssociationConnector Association="Model.Administrator1" />
-        <AssociationConnector Association="Model.Administrator2" />
-        <AssociationConnector Association="Model.QuestionBank2" />
-        <AssociationConnector Association="Model.TestPaper1" />
-        <AssociationConnector Association="Model.add_typeofwork_between_administrator_and_typeofwork" />
-        <AssociationConnector Association="Model.binding_typeofwork_between_questionbank_and_typeofwork" />
-        <AssociationConnector Association="Model.binding_typeofwork_between_testpaper_and_typeofwork" />
-        <AssociationConnector Association="Model.include_question_between_questionbank_and_question" />
-        <AssociationConnector Association="Model.include_question_between_testpaper_and_question" />
-        <EntityTypeShape EntityType="Model.arrange_testgame_between_ordinaryuser_and_testpaper" Width="1.5" PointX="6" PointY="8.25" />
-        <EntityTypeShape EntityType="Model.collect_question_between_ordinaryuser_and_question" Width="1.5" PointX="8.75" PointY="8" />
-        <EntityTypeShape EntityType="Model.comment_between_administrator_and_ordinaryuser" Width="1.5" PointX="7" PointY="4.375" />
-        <EntityTypeShape EntityType="Model.establish_questionbank_between_organizationuser_and_questionbank" Width="1.5" PointX="7.5" PointY="18.25" />
-        <EntityTypeShape EntityType="Model.generate_testpaper_between_organizationuser_and_testpaper" Width="1.5" PointX="10.5" PointY="14.875" />
-        <EntityTypeShape EntityType="Model.notice_of_testgame_between_organizationuser_and_ordinaryuser" Width="1.5" PointX="7.5" PointY="15.125" />
-        <EntityTypeShape EntityType="Model.organization" Width="1.5" PointX="3" PointY="19.375" />
-        <EntityTypeShape EntityType="Model.organizationuser" Width="1.5" PointX="5.25" PointY="18.75" />
-        <EntityTypeShape EntityType="Model.systemnotice_" Width="1.5" PointX="8.5" PointY="11" />
-        <AssociationConnector Association="Model.Administrator16" />
-        <AssociationConnector Association="Model.Administrator17" />
-        <AssociationConnector Association="Model.OrdinaryUser1" />
-        <AssociationConnector Association="Model.TestPaper4" />
-        <AssociationConnector Association="Model.OrdinaryUser14" />
-        <AssociationConnector Association="Model.Question14" />
-        <AssociationConnector Association="Model.OrdinaryUser17" />
-        <AssociationConnector Association="Model.OrganizationUser12" />
-        <AssociationConnector Association="Model.QuestionBank12" />
-        <AssociationConnector Association="Model.OrganizationUser13" />
-        <AssociationConnector Association="Model.TestPaper13" />
-        <AssociationConnector Association="Model.OrdinaryUser15" />
-        <AssociationConnector Association="Model.OrganizationUser15" />
-        <AssociationConnector Association="Model.OrdinaryUser16" />
-        <AssociationConnector Association="Model.OrganizationUser16" />
-        <AssociationConnector Association="Model.having_organizationuser_" />
-        <AssociationConnector Association="Model.having_student_between_organization_and_ordinaryuser" />
+      <Diagram DiagramId="e614536821954924a3db866e847402f1" Name="Diagram1">
+        <EntityTypeShape EntityType="Model1.add_typeofwork_between_administrator_and_typeofwork" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.administrator" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.arrange_testgame_between_ordinaryuser_and_testpaper" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.binding_typeofwork_between_questionbank_and_typeofwork" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.binding_typeofwork_between_testpaper_and_typeofwork" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.board" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.board1" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.board2" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.collect_question_between_ordinaryuser_and_completion" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.collect_question_between_ordinaryuser_and_composition" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.collect_question_between_ordinaryuser_and_questionandanswer" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.collect_question_between_ordinaryuser_and_reading" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.collect_question_between_ordinaryuser_and_selection" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.collect_question_between_ordinaryuser_and_trueorfalse" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.comment_between_administrator_and_ordinaryuser" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.completion" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.composition" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.establish_questionbank_between_organizationuser_and_questionbank" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.generate_testpaper_between_administrator_and_testpaper" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.generate_testpaper_between_organizationuser_and_testpaper" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.having_student_between_organizationuser_and_ordinaryuser" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_bank_and_completion" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_bank_and_composition" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_bank_and_questionandanswer" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_bank_and_reading" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_bank_and_selection" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_bank_and_trueorfalse" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_testpaper_and_completion" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_testpaper_and_composition" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_testpaper_and_questionandanswer" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_testpaper_and_reading" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_testpaper_and_selection" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.include_question_between_testpaper_and_trueorfalse" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.letter_between_administrator_organizationuser" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.letter_between_organizationuser_ordinaryuser" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.ordinaryuser" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.organizationuser" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.questionandanswer" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.questionbank" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.reading" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.selection" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.testpaper" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.trueorfalse" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.typeofwork" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
