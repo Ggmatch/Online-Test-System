@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class selection
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string Content { get; set; }
         public string OptionA { get; set; }
         public string OptionB { get; set; }
@@ -22,6 +22,6 @@ namespace AdministratorSystem.Models
         public string OptionD { get; set; }
         public byte Type { get; set; }
         public string Answer { get; set; }
-        public Nullable<int> Score { get; set; }
+        public Nullable<short> Score { get; set; }
     }
 }

@@ -52,7 +52,8 @@ namespace AdministratorSystem.Models
 
         public bool Send1(letter_between_organizationuser_ordinaryuser letter)
         {
-            throw new NotImplementedException();
+            // 暂时不做，返回“发送成功”
+            return true;
         }
     }
 }

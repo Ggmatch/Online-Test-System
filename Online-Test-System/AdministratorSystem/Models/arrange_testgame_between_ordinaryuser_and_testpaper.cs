@@ -18,11 +18,11 @@ namespace AdministratorSystem.Models
         public int TestPaperID { get; set; }
         public byte State { get; set; }
         public int TypeOfWork { get; set; }
+        public System.DateTime StartTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         public string Location { get; set; }
         public Nullable<short> Grade { get; set; }
         public string Marker { get; set; }
         public string Info { get; set; }
-        public System.DateTime StartTime { get; set; }
-        public System.DateTime EndTime { get; set; }
     }
 }

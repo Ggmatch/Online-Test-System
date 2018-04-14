@@ -14,8 +14,8 @@ namespace AdministratorSystem.Models
     
     public partial class collect_question_between_ordinaryuser_and_completion
     {
-        public long OrdinaryUserID { get; set; }
-        public long QuestionID { get; set; }
+        public int OrdinaryUserID { get; set; }
+        public int QuestionID { get; set; }
         public Nullable<System.DateTime> TimeOfCollection { get; set; }
     }
 }

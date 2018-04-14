@@ -14,8 +14,8 @@ namespace AdministratorSystem.Models
     
     public partial class letter_between_administrator_organizationuser
     {
-        public long ID { get; set; }
-        public long organizationUserID { get; set; }
+        public int ID { get; set; }
+        public int organizationUserID { get; set; }
         public System.DateTime TimeOfGeneration { get; set; }
         public string Content { get; set; }
     }

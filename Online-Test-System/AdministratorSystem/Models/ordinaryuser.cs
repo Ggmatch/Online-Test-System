@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class ordinaryuser
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string RealName { get; set; }
         public string IDCard { get; set; }
         public string PhoneNumber { get; set; }

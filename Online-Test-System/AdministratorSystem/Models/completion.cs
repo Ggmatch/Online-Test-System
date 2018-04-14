@@ -14,9 +14,9 @@ namespace AdministratorSystem.Models
     
     public partial class completion
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string Content { get; set; }
         public Nullable<byte> Answer { get; set; }
-        public Nullable<int> Score { get; set; }
+        public Nullable<short> Score { get; set; }
     }
 }

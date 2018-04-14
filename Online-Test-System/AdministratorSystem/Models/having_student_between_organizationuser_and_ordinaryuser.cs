@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class having_student_between_organizationuser_and_ordinaryuser
     {
-        public long OrganizationUserID { get; set; }
-        public long OrdinaryUserID { get; set; }
+        public int OrganizationUserID { get; set; }
+        public int OrdinaryUserID { get; set; }
     }
 }

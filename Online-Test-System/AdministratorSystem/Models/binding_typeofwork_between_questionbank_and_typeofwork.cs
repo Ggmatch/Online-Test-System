@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class binding_typeofwork_between_questionbank_and_typeofwork
     {
-        public long IDOfQuestionBank { get; set; }
-        public long IDOfTypeOfWork { get; set; }
+        public int IDOfQuestionBank { get; set; }
+        public int IDOfTypeOfWork { get; set; }
     }
 }

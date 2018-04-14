@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class organizationuser
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string Pwd { get; set; }
         public System.DateTime RegisterTime { get; set; }
     }

@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class include_question_between_testpaper_and_reading
     {
-        public long TestPaperID { get; set; }
-        public long QuestionID { get; set; }
+        public int TestPaperID { get; set; }
+        public int QuestionID { get; set; }
     }
 }

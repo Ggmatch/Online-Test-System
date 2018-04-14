@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class binding_typeofwork_between_testpaper_and_typeofwork
     {
-        public long TestPaperID { get; set; }
+        public int TestPaperID { get; set; }
         public int IDOfTypeOfWork { get; set; }
     }
 }

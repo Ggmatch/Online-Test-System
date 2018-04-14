@@ -14,13 +14,13 @@ namespace AdministratorSystem.Models
     
     public partial class testpaper
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string TestPaperName { get; set; }
         public short TestPaperScore { get; set; }
         public short TimeIntervalOfSavingAnswer { get; set; }
         public byte CanUseAgain { get; set; }
         public System.DateTime OverTime { get; set; }
-        public int PassMark { get; set; }
+        public short PassMark { get; set; }
         public byte Amount1 { get; set; }
         public byte Amount2 { get; set; }
         public byte Amount3 { get; set; }

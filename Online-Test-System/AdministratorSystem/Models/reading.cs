@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class reading
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string Content { get; set; }
         public string QuestionA { get; set; }
         public string QuestionB { get; set; }
@@ -22,8 +22,8 @@ namespace AdministratorSystem.Models
         public string Answer1 { get; set; }
         public string Answer2 { get; set; }
         public string Answer3 { get; set; }
-        public Nullable<int> Score1 { get; set; }
-        public Nullable<int> Score2 { get; set; }
-        public Nullable<int> Score3 { get; set; }
+        public Nullable<short> Score1 { get; set; }
+        public Nullable<short> Score2 { get; set; }
+        public Nullable<short> Score3 { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace AdministratorSystem.Models
     
     public partial class board
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
         public string Title { get; set; }
         public string Url { get; set; }
         public System.DateTime TimeOfGeneration { get; set; }
